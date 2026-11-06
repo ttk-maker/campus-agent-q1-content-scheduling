@@ -1,0 +1,27 @@
+{
+  "request_id": "case-normal",
+  "mode": "real",
+  "model": "qwen2.5:7b-instruct",
+  "max_steps": 24,
+  "steps_used": 5,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "completed",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T16:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T08:00:00+00:00",
+      "effective_at": "2026-11-07T08:00:00+00:00",
+      "pending_confirmations": [],
+      "draft_id": "draft-1c87c8d5f2ae88f36e35",
+      "draft_status": "ready",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    }
+  ]
+}

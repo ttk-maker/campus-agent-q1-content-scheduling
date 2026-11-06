@@ -1,0 +1,443 @@
+{
+  "mode": "mock",
+  "generated_at": "2026-11-06T06:38:27.731032+00:00",
+  "python": "3.10.11",
+  "cases": [
+    {
+      "name": "normal",
+      "generated_at": "2026-11-06T06:38:27.750658+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/normal/input.json",
+            "--data",
+            "examples/mock/normal/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/normal/trace-1.jsonl",
+            "--output",
+            "examples/mock/normal/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/mock/normal/output-1.json",
+          "trace": "examples/mock/normal/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "missing",
+      "generated_at": "2026-11-06T06:38:28.730321+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/missing/input.json",
+            "--data",
+            "examples/mock/missing/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/missing/trace-1.jsonl",
+            "--output",
+            "examples/mock/missing/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_information"
+          ],
+          "output": "examples/mock/missing/output-1.json",
+          "trace": "examples/mock/missing/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "risk",
+      "generated_at": "2026-11-06T06:38:29.669730+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/risk/input.json",
+            "--data",
+            "examples/mock/risk/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/risk/trace-1.jsonl",
+            "--output",
+            "examples/mock/risk/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "blocked"
+          ],
+          "output": "examples/mock/risk/output-1.json",
+          "trace": "examples/mock/risk/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "conflict",
+      "generated_at": "2026-11-06T06:38:30.610895+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/conflict/input.json",
+            "--data",
+            "examples/mock/conflict/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/conflict/trace-1.jsonl",
+            "--output",
+            "examples/mock/conflict/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/mock/conflict/output-1.json",
+          "trace": "examples/mock/conflict/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "duplicate",
+      "generated_at": "2026-11-06T06:38:31.425169+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/duplicate/input.json",
+            "--data",
+            "examples/mock/duplicate/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/duplicate/trace-1.jsonl",
+            "--output",
+            "examples/mock/duplicate/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/mock/duplicate/output-1.json",
+          "trace": "examples/mock/duplicate/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/duplicate/input.json",
+            "--data",
+            "examples/mock/duplicate/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/duplicate/trace-2.jsonl",
+            "--output",
+            "examples/mock/duplicate/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/mock/duplicate/output-2.json",
+          "trace": "examples/mock/duplicate/trace-2.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "save-failure",
+      "generated_at": "2026-11-06T06:38:31.896696+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/save-failure/input.json",
+            "--data",
+            "examples/mock/save-failure/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/save-failure/trace-1.jsonl",
+            "--output",
+            "examples/mock/save-failure/output-1.json",
+            "--simulate-save-failure"
+          ],
+          "exit_code": 2,
+          "statuses": [
+            "failed"
+          ],
+          "output": "examples/mock/save-failure/output-1.json",
+          "trace": "examples/mock/save-failure/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "supplement",
+      "generated_at": "2026-11-06T06:38:32.166835+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/supplement/input.json",
+            "--data",
+            "examples/mock/supplement/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/supplement/trace-1.jsonl",
+            "--output",
+            "examples/mock/supplement/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/mock/supplement/output-1.json",
+          "trace": "examples/mock/supplement/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "changed-occupancy",
+      "generated_at": "2026-11-06T06:38:32.432072+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/changed-occupancy/input.json",
+            "--data",
+            "examples/mock/changed-occupancy/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/changed-occupancy/trace-1.jsonl",
+            "--output",
+            "examples/mock/changed-occupancy/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/mock/changed-occupancy/output-1.json",
+          "trace": "examples/mock/changed-occupancy/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/changed-occupancy/input.json",
+            "--data",
+            "examples/mock/changed-occupancy/fixture-2.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/changed-occupancy/trace-2.jsonl",
+            "--output",
+            "examples/mock/changed-occupancy/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/mock/changed-occupancy/output-2.json",
+          "trace": "examples/mock/changed-occupancy/trace-2.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "confirmation",
+      "generated_at": "2026-11-06T06:38:32.976734+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/confirmation/input.json",
+            "--data",
+            "examples/mock/confirmation/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/confirmation/trace-1.jsonl",
+            "--output",
+            "examples/mock/confirmation/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/mock/confirmation/output-1.json",
+          "trace": "examples/mock/confirmation/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/confirmation/input.json",
+            "--data",
+            "examples/mock/confirmation/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/confirmation/trace-2.jsonl",
+            "--output",
+            "examples/mock/confirmation/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/mock/confirmation/output-2.json",
+          "trace": "examples/mock/confirmation/trace-2.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "batch",
+      "generated_at": "2026-11-06T06:38:34.838742+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/batch/input.json",
+            "--data",
+            "examples/mock/batch/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/batch/trace-1.jsonl",
+            "--output",
+            "examples/mock/batch/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed",
+            "needs_confirmation",
+            "needs_information"
+          ],
+          "output": "examples/mock/batch/output-1.json",
+          "trace": "examples/mock/batch/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "budget",
+      "generated_at": "2026-11-06T06:38:35.771926+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "mock",
+            "--request",
+            "examples/mock/budget/input.json",
+            "--data",
+            "examples/mock/budget/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/mock/budget/trace-1.jsonl",
+            "--output",
+            "examples/mock/budget/output-1.json",
+            "--max-steps",
+            "2"
+          ],
+          "exit_code": 2,
+          "statuses": [
+            "budget_exhausted"
+          ],
+          "output": "examples/mock/budget/output-1.json",
+          "trace": "examples/mock/budget/trace-1.jsonl"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-11-06T06:38:36.649112+00:00"
+}

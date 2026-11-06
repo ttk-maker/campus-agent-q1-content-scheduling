@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-11-06T14:36:35.6891952+08:00",
+  "provider": "local Ollama",
+  "endpoint": "http://localhost:11434/v1",
+  "authentication": "not required for local API",
+  "ollama_version": "0.40.4",
+  "model": "qwen2.5:7b-instruct",
+  "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "parameter_size": "7.6B",
+  "quantization": "Q4_K_M",
+  "size_bytes": 4683087332,
+  "generation_temperature": 0,
+  "max_output_tokens": 256,
+  "request_timeout_seconds": 45
+}

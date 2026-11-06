@@ -1,0 +1,6 @@
+{
+  "command": "python -m unittest discover -s tests -v",
+  "python": "3.10.11",
+  "timestamp": "2026-11-06T06:42:00.778879+00:00",
+  "exit_code": 0
+}

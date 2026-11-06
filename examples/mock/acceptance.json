@@ -1,0 +1,251 @@
+{
+  "mode": "mock",
+  "passed": true,
+  "checks_count": 61,
+  "checks": [
+    {
+      "check": "normal: expected status",
+      "passed": true
+    },
+    {
+      "check": "normal: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "normal: never published",
+      "passed": true
+    },
+    {
+      "check": "normal: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "missing: expected status",
+      "passed": true
+    },
+    {
+      "check": "missing: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "missing: never published",
+      "passed": true
+    },
+    {
+      "check": "missing: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "missing: no draft",
+      "passed": true
+    },
+    {
+      "check": "risk: expected status",
+      "passed": true
+    },
+    {
+      "check": "risk: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "risk: never published",
+      "passed": true
+    },
+    {
+      "check": "risk: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "risk: no draft",
+      "passed": true
+    },
+    {
+      "check": "conflict: expected status",
+      "passed": true
+    },
+    {
+      "check": "conflict: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "conflict: never published",
+      "passed": true
+    },
+    {
+      "check": "conflict: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "conflict: original requirement preserved",
+      "passed": true
+    },
+    {
+      "check": "conflict: suggests 19:00",
+      "passed": true
+    },
+    {
+      "check": "conflict: consent required",
+      "passed": true
+    },
+    {
+      "check": "duplicate: expected status",
+      "passed": true
+    },
+    {
+      "check": "duplicate: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "duplicate: never published",
+      "passed": true
+    },
+    {
+      "check": "duplicate: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "duplicate: exactly one draft",
+      "passed": true
+    },
+    {
+      "check": "duplicate: stable draft ID",
+      "passed": true
+    },
+    {
+      "check": "duplicate: existing result",
+      "passed": true
+    },
+    {
+      "check": "save-failure: expected status",
+      "passed": true
+    },
+    {
+      "check": "save-failure: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "save-failure: never published",
+      "passed": true
+    },
+    {
+      "check": "save-failure: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "save-failure: no draft",
+      "passed": true
+    },
+    {
+      "check": "save-failure: honest save status",
+      "passed": true
+    },
+    {
+      "check": "supplement: expected status",
+      "passed": true
+    },
+    {
+      "check": "supplement: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "supplement: never published",
+      "passed": true
+    },
+    {
+      "check": "supplement: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: expected status",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: never published",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: exactly one draft",
+      "passed": true
+    },
+    {
+      "check": "changed-occupancy: stable draft ID",
+      "passed": true
+    },
+    {
+      "check": "confirmation: expected status",
+      "passed": true
+    },
+    {
+      "check": "confirmation: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "confirmation: never published",
+      "passed": true
+    },
+    {
+      "check": "confirmation: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "confirmation: exactly one draft",
+      "passed": true
+    },
+    {
+      "check": "confirmation: stable draft ID",
+      "passed": true
+    },
+    {
+      "check": "confirmation: confirmed ready",
+      "passed": true
+    },
+    {
+      "check": "batch: expected status",
+      "passed": true
+    },
+    {
+      "check": "batch: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "batch: never published",
+      "passed": true
+    },
+    {
+      "check": "batch: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "budget: expected status",
+      "passed": true
+    },
+    {
+      "check": "budget: mode labelled",
+      "passed": true
+    },
+    {
+      "check": "budget: never published",
+      "passed": true
+    },
+    {
+      "check": "budget: budget enforced",
+      "passed": true
+    },
+    {
+      "check": "budget: no draft",
+      "passed": true
+    },
+    {
+      "check": "all scenarios present",
+      "passed": true
+    }
+  ]
+}

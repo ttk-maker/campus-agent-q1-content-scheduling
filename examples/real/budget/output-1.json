@@ -1,0 +1,27 @@
+{
+  "request_id": "case-normal",
+  "mode": "real",
+  "model": "qwen2.5:7b-instruct",
+  "max_steps": 2,
+  "steps_used": 2,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "budget_exhausted",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T16:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": null,
+      "effective_at": null,
+      "pending_confirmations": [],
+      "draft_id": null,
+      "draft_status": null,
+      "save_status": "not_attempted",
+      "published": false,
+      "error": null
+    }
+  ]
+}

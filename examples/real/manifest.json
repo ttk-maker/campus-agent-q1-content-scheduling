@@ -1,0 +1,433 @@
+{
+  "mode": "real",
+  "generated_at": "2026-11-06T06:33:27.077510+00:00",
+  "python": "3.10.11",
+  "cases": [
+    {
+      "name": "normal",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/normal/input.json",
+            "--data",
+            "examples/real/normal/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/normal/trace-1.jsonl",
+            "--output",
+            "examples/real/normal/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/real/normal/output-1.json",
+          "trace": "examples/real/normal/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "missing",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/missing/input.json",
+            "--data",
+            "examples/real/missing/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/missing/trace-1.jsonl",
+            "--output",
+            "examples/real/missing/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_information"
+          ],
+          "output": "examples/real/missing/output-1.json",
+          "trace": "examples/real/missing/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "risk",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/risk/input.json",
+            "--data",
+            "examples/real/risk/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/risk/trace-1.jsonl",
+            "--output",
+            "examples/real/risk/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "blocked"
+          ],
+          "output": "examples/real/risk/output-1.json",
+          "trace": "examples/real/risk/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "conflict",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/conflict/input.json",
+            "--data",
+            "examples/real/conflict/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/conflict/trace-1.jsonl",
+            "--output",
+            "examples/real/conflict/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/real/conflict/output-1.json",
+          "trace": "examples/real/conflict/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "duplicate",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/duplicate/input.json",
+            "--data",
+            "examples/real/duplicate/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/duplicate/trace-1.jsonl",
+            "--output",
+            "examples/real/duplicate/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/real/duplicate/output-1.json",
+          "trace": "examples/real/duplicate/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/duplicate/input.json",
+            "--data",
+            "examples/real/duplicate/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/duplicate/trace-2.jsonl",
+            "--output",
+            "examples/real/duplicate/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/real/duplicate/output-2.json",
+          "trace": "examples/real/duplicate/trace-2.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "save-failure",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/save-failure/input.json",
+            "--data",
+            "examples/real/save-failure/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/save-failure/trace-1.jsonl",
+            "--output",
+            "examples/real/save-failure/output-1.json",
+            "--simulate-save-failure"
+          ],
+          "exit_code": 2,
+          "statuses": [
+            "failed"
+          ],
+          "output": "examples/real/save-failure/output-1.json",
+          "trace": "examples/real/save-failure/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "supplement",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/supplement/input.json",
+            "--data",
+            "examples/real/supplement/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/supplement/trace-1.jsonl",
+            "--output",
+            "examples/real/supplement/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/real/supplement/output-1.json",
+          "trace": "examples/real/supplement/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "confirmation",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/confirmation/input.json",
+            "--data",
+            "examples/real/confirmation/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/confirmation/trace-1.jsonl",
+            "--output",
+            "examples/real/confirmation/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/real/confirmation/output-1.json",
+          "trace": "examples/real/confirmation/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/confirmation/input.json",
+            "--data",
+            "examples/real/confirmation/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/confirmation/trace-2.jsonl",
+            "--output",
+            "examples/real/confirmation/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/real/confirmation/output-2.json",
+          "trace": "examples/real/confirmation/trace-2.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "batch",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/batch/input.json",
+            "--data",
+            "examples/real/batch/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/batch/trace-1.jsonl",
+            "--output",
+            "examples/real/batch/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed",
+            "needs_confirmation",
+            "needs_information"
+          ],
+          "output": "examples/real/batch/output-1.json",
+          "trace": "examples/real/batch/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "budget",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/budget/input.json",
+            "--data",
+            "examples/real/budget/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/budget/trace-1.jsonl",
+            "--output",
+            "examples/real/budget/output-1.json",
+            "--max-steps",
+            "2"
+          ],
+          "exit_code": 2,
+          "statuses": [
+            "budget_exhausted"
+          ],
+          "output": "examples/real/budget/output-1.json",
+          "trace": "examples/real/budget/trace-1.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "changed-occupancy",
+      "generated_at": "2026-11-06T06:49:54.171337+00:00",
+      "runs": [
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/changed-occupancy/input.json",
+            "--data",
+            "examples/real/changed-occupancy/fixture.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/changed-occupancy/trace-1.jsonl",
+            "--output",
+            "examples/real/changed-occupancy/output-1.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "needs_confirmation"
+          ],
+          "output": "examples/real/changed-occupancy/output-1.json",
+          "trace": "examples/real/changed-occupancy/trace-1.jsonl"
+        },
+        {
+          "command_argv": [
+            "python",
+            "-m",
+            "src.cli",
+            "run",
+            "--mode",
+            "real",
+            "--request",
+            "examples/real/changed-occupancy/input.json",
+            "--data",
+            "examples/real/changed-occupancy/fixture-2.json",
+            "--db",
+            "<temporary-db>",
+            "--trace",
+            "examples/real/changed-occupancy/trace-2.jsonl",
+            "--output",
+            "examples/real/changed-occupancy/output-2.json"
+          ],
+          "exit_code": 0,
+          "statuses": [
+            "completed"
+          ],
+          "output": "examples/real/changed-occupancy/output-2.json",
+          "trace": "examples/real/changed-occupancy/trace-2.jsonl"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-11-06T06:51:50.187989+00:00"
+}

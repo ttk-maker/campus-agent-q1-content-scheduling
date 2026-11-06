@@ -1,0 +1,69 @@
+{
+  "request_id": "case-batch",
+  "mode": "real",
+  "model": "qwen2.5:7b-instruct",
+  "max_steps": 24,
+  "steps_used": 17,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "completed",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T16:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T08:00:00+00:00",
+      "effective_at": "2026-11-07T08:00:00+00:00",
+      "pending_confirmations": [],
+      "draft_id": "draft-f75c796a2d0bdb2f09b6",
+      "draft_status": "ready",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    },
+    {
+      "asset_id": "M05",
+      "status": "needs_confirmation",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T16:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T09:00:00+00:00",
+      "effective_at": null,
+      "pending_confirmations": [
+        {
+          "type": "time_change",
+          "original": "2026-11-07T16:00:00+08:00",
+          "suggested": "2026-11-07T09:00:00+00:00"
+        }
+      ],
+      "draft_id": "draft-52686697373757150c12",
+      "draft_status": "pending_confirmation",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    },
+    {
+      "asset_id": "M02",
+      "status": "needs_information",
+      "review_status": "insufficient",
+      "risk_reasons": [],
+      "missing_fields": [
+        "copyright_status"
+      ],
+      "requested_at": "2026-11-07T18:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": null,
+      "effective_at": null,
+      "pending_confirmations": [],
+      "draft_id": null,
+      "draft_status": null,
+      "save_status": "rejected",
+      "published": false,
+      "error": "review_required"
+    }
+  ]
+}

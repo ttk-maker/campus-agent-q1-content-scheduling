@@ -1,0 +1,27 @@
+{
+  "request_id": "case-supplement",
+  "mode": "mock",
+  "model": "offline-observation-policy-v1",
+  "max_steps": 24,
+  "steps_used": 7,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M04",
+      "status": "completed",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T16:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T08:00:00+00:00",
+      "effective_at": "2026-11-07T08:00:00+00:00",
+      "pending_confirmations": [],
+      "draft_id": "draft-8432924a48c340c6b053",
+      "draft_status": "ready",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    }
+  ]
+}
