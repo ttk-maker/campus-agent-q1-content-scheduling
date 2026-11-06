@@ -1,0 +1,129 @@
+test_aba_suggestion_does_not_resurrect_old_consent (tests.test_robustness.DifficultTests) ... FAIL
+test_asset_changes_between_review_and_write_are_rechecked (tests.test_robustness.DifficultTests) ... FAIL
+test_injection_cannot_add_confirmation_tool (tests.test_robustness.DifficultTests) ... ok
+test_model_error_after_save_keeps_saved_fact_and_trace_link (tests.test_robustness.DifficultTests) ... FAIL
+test_new_risk_invalidates_existing_ready_draft (tests.test_robustness.DifficultTests) ... FAIL
+test_ready_draft_invalidated_by_new_external_occupancy (tests.test_robustness.DifficultTests) ... FAIL
+test_stale_confirmation_token_cannot_approve_changed_version (tests.test_robustness.DifficultTests) ... ERROR
+test_unexpected_model_envelope_is_sanitized (tests.test_robustness.DifficultTests) ... ERROR
+test_blank_channel_is_not_a_separate_valid_channel (tests.test_robustness.EdgeTests) ... FAIL
+test_budget_after_save_reports_actual_persistence (tests.test_robustness.EdgeTests) ... ok
+test_calendar_overflow_is_rejected_at_input (tests.test_robustness.EdgeTests) ... FAIL
+test_cross_midnight_candidate_requires_confirmation (tests.test_robustness.EdgeTests) ... ok
+test_id_length_is_bounded (tests.test_robustness.EdgeTests) ... FAIL
+test_invalid_duration_types_do_not_save (tests.test_robustness.EdgeTests) ... ok
+test_other_channel_does_not_conflict (tests.test_robustness.EdgeTests) ... ok
+test_partial_minute_overlap_is_not_missed (tests.test_robustness.EdgeTests) ... ok
+test_repeated_confirmation_is_idempotent (tests.test_robustness.EdgeTests) ... ok
+test_soft_preference_still_requires_confirmation_on_change (tests.test_robustness.EdgeTests) ... ok
+test_unknown_asset_requests_information (tests.test_robustness.EdgeTests) ... ok
+test_whitespace_metadata_is_missing (tests.test_robustness.EdgeTests) ... FAIL
+
+======================================================================
+ERROR: test_stale_confirmation_token_cannot_approve_changed_version (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 164, in test_stale_confirmation_token_cannot_approve_changed_version
+    consent = self.store.confirm(self.request["request_id"], "M01", first["suggested_at"],
+TypeError: DraftStore.confirm() got an unexpected keyword argument 'expected_fingerprint'
+
+======================================================================
+ERROR: test_unexpected_model_envelope_is_sanitized (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 146, in test_unexpected_model_envelope_is_sanitized
+    HTTPModel().decide({"request": {}, "history": []})
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\src\models.py", line 84, in decide
+    action = json.loads(data["choices"][0]["message"]["content"])
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+FAIL: test_aba_suggestion_does_not_resurrect_old_consent (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 113, in test_aba_suggestion_does_not_resurrect_old_consent
+    self.assertEqual(third["status"], "needs_confirmation")
+AssertionError: 'completed' != 'needs_confirmation'
+- completed
++ needs_confirmation
+
+
+======================================================================
+FAIL: test_asset_changes_between_review_and_write_are_rechecked (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 135, in test_asset_changes_between_review_and_write_are_rechecked
+    self.assertEqual(self.store.count(), 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_model_error_after_save_keeps_saved_fact_and_trace_link (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 157, in test_model_error_after_save_keeps_saved_fact_and_trace_link
+    self.assertEqual(self.agent.trace[-2]["next_action"], "model")
+AssertionError: 'stop:failed' != 'model'
+- stop:failed
++ model
+
+
+======================================================================
+FAIL: test_new_risk_invalidates_existing_ready_draft (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 129, in test_new_risk_invalidates_existing_ready_draft
+    self.assertNotEqual(self.store.get(self.request["request_id"], "M01")["status"], "ready")
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_ready_draft_invalidated_by_new_external_occupancy (tests.test_robustness.DifficultTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 121, in test_ready_draft_invalidated_by_new_external_occupancy
+    self.assertNotEqual(self.store.get(self.request["request_id"], "M01")["status"], "ready")
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_blank_channel_is_not_a_separate_valid_channel (tests.test_robustness.EdgeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 59, in test_blank_channel_is_not_a_separate_valid_channel
+    self.assertEqual(self.run_agent()["status"], "needs_information")
+AssertionError: 'completed' != 'needs_information'
+- completed
++ needs_information
+
+
+======================================================================
+FAIL: test_calendar_overflow_is_rejected_at_input (tests.test_robustness.EdgeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 83, in test_calendar_overflow_is_rejected_at_input
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_id_length_is_bounded (tests.test_robustness.EdgeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 78, in test_id_length_is_bounded
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_whitespace_metadata_is_missing (tests.test_robustness.EdgeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jj183\Documents\Codex\2026-11-06\wo\outputs\q1-content-scheduling-agent\tests\test_robustness.py", line 54, in test_whitespace_metadata_is_missing
+    self.assertEqual(result["status"], "needs_information")
+AssertionError: 'needs_confirmation' != 'needs_information'
+- needs_confirmation
+?       ^^  ^
++ needs_information
+?       ^  ^
+
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.932s
+
+FAILED (failures=9, errors=2)

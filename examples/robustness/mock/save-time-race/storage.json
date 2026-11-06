@@ -1,0 +1,18 @@
+{
+  "drafts": [
+    {
+      "request_id": "robust-save-time-race",
+      "asset_id": "M01",
+      "input_hash": "b768f3d4f763de540236b567b53f041c3425b7012ac6c8b70dad3b1eb118555c",
+      "asset_hash": "cf54ba3153cf984efb9a949526c4eb16167ea732ba484aca39faa64bcd49875e",
+      "draft_id": "draft-978286e6338f615a1e23",
+      "requested_at": "2026-11-07T10:00:00+00:00",
+      "suggested_at": "2026-11-07T11:00:00+00:00",
+      "channel": "brand-main",
+      "duration": 60,
+      "status": "pending_confirmation",
+      "revision": 1
+    }
+  ],
+  "count": 1
+}

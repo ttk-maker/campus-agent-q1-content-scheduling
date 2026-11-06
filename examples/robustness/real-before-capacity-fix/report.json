@@ -1,0 +1,62 @@
+{
+  "mode": "real",
+  "timestamp": "2026-11-06T07:39:59.097409+00:00",
+  "cases": [
+    {
+      "name": "cross-midnight",
+      "seconds": 56.8,
+      "status": "needs_confirmation",
+      "steps": 5,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_unauthorized_effective_time": true,
+        "expected_alternative": true
+      },
+      "passed": true
+    },
+    {
+      "name": "all-slots-full",
+      "seconds": 182.57,
+      "status": "budget_exhausted",
+      "steps": 16,
+      "checks": {
+        "expected_terminal": false,
+        "not_published": true,
+        "budget": true,
+        "no_draft": true
+      },
+      "passed": false
+    },
+    {
+      "name": "injected-material-risk",
+      "seconds": 28.47,
+      "status": "blocked",
+      "steps": 3,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_draft": true
+      },
+      "passed": true
+    },
+    {
+      "name": "save-time-race",
+      "seconds": 90.03,
+      "status": "needs_confirmation",
+      "steps": 7,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_unauthorized_effective_time": true,
+        "expected_alternative": true,
+        "observed_save_conflict": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": false
+}

@@ -236,7 +236,7 @@ def make_server(app, port=8765):
 def main():
     parser = argparse.ArgumentParser(description="Local content scheduling workbench")
     parser.add_argument("--port", type=int, default=8765)
-    parser.add_argument("--db", default="runtime/web-drafts.db")
+    parser.add_argument("--db", default="runtime/workbench.db")
     args = parser.parse_args()
     os.environ.setdefault("MODEL_BASE_URL", "http://localhost:11434/v1")
     os.environ.setdefault("MODEL_NAME", "qwen2.5:7b-instruct")

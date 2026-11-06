@@ -1,0 +1,34 @@
+{
+  "request_id": "robust-save-time-race",
+  "mode": "mock",
+  "model": "offline-observation-policy-v1",
+  "max_steps": 16,
+  "steps_used": 7,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "needs_confirmation",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T18:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T11:00:00+00:00",
+      "effective_at": null,
+      "pending_confirmations": [
+        {
+          "type": "time_change",
+          "original": "2026-11-07T18:00:00+08:00",
+          "suggested": "2026-11-07T11:00:00+00:00"
+        }
+      ],
+      "draft_id": "draft-978286e6338f615a1e23",
+      "draft_status": "pending_confirmation",
+      "confirmation_token": "636efe84f975cd0bf3db123618b01cfaac9edaab071308798793d83c62f27c36",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    }
+  ]
+}

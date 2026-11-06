@@ -1,0 +1,10 @@
+{
+  "request_id": "robust-injected-material-risk",
+  "items": [
+    {
+      "asset_id": "M01",
+      "requested_at": "2026-11-07T18:00:00+08:00",
+      "hard_time": true
+    }
+  ]
+}

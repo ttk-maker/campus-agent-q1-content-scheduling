@@ -19,6 +19,7 @@
       "pending_confirmations": [],
       "draft_id": "draft-8432924a48c340c6b053",
       "draft_status": "ready",
+      "confirmation_token": null,
       "save_status": "saved",
       "published": false,
       "error": null

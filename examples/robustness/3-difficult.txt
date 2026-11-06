@@ -1,0 +1,14 @@
+test_aba_suggestion_does_not_resurrect_old_consent (tests.test_robustness.DifficultTests) ... ok
+test_asset_changes_between_review_and_write_are_rechecked (tests.test_robustness.DifficultTests) ... ok
+test_injection_cannot_add_confirmation_tool (tests.test_robustness.DifficultTests) ... ok
+test_model_error_after_save_keeps_saved_fact_and_trace_link (tests.test_robustness.DifficultTests) ... ok
+test_new_risk_invalidates_existing_ready_draft (tests.test_robustness.DifficultTests) ... ok
+test_ready_draft_invalidated_by_new_external_occupancy (tests.test_robustness.DifficultTests) ... ok
+test_stale_confirmation_token_cannot_approve_changed_version (tests.test_robustness.DifficultTests) ... ok
+test_unexpected_model_envelope_is_sanitized (tests.test_robustness.DifficultTests) ... ok
+test_wrong_capacity_finish_returns_correct_recovery_options (tests.test_robustness.DifficultTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.284s
+
+OK

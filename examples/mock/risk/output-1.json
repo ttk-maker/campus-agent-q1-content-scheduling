@@ -24,6 +24,7 @@
       "pending_confirmations": [],
       "draft_id": null,
       "draft_status": null,
+      "confirmation_token": null,
       "save_status": "not_attempted",
       "published": false,
       "error": null

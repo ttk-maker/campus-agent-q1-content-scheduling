@@ -1,0 +1,18 @@
+{
+  "drafts": [
+    {
+      "request_id": "robust-cross-midnight",
+      "asset_id": "M01",
+      "input_hash": "3f1af0199e266472194b38788fe5b185d2bc80797c8d19e4b2055d71e6cdf725",
+      "asset_hash": "cf54ba3153cf984efb9a949526c4eb16167ea732ba484aca39faa64bcd49875e",
+      "draft_id": "draft-28e522d9c3d3ea3c59d5",
+      "requested_at": "2026-11-07T15:30:00+00:00",
+      "suggested_at": "2026-11-07T16:30:00+00:00",
+      "channel": "brand-main",
+      "duration": 60,
+      "status": "pending_confirmation",
+      "revision": 1
+    }
+  ],
+  "count": 1
+}

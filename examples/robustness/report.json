@@ -1,0 +1,382 @@
+{
+  "timestamp": "2026-11-06T07:47:26.131536+00:00",
+  "python": "3.10.11",
+  "mode": "deterministic-tests-and-mock",
+  "tiers": [
+    {
+      "tier": "1-basic-and-existing-guards",
+      "passed": true,
+      "tests": 37,
+      "results": [
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_asset_change_invalidates_old_confirmation",
+          "status": "passed",
+          "seconds": 0.1304
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_batch_returns_each_item_and_avoids_ready_draft_conflicts",
+          "status": "passed",
+          "seconds": 0.1041
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_boolean_duration_is_not_accepted_as_integer",
+          "status": "passed",
+          "seconds": 0.0462
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_budget_is_global_and_unprocessed_items_are_explicit",
+          "status": "passed",
+          "seconds": 0.0537
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_changed_schedule_is_observed_on_same_request_and_database",
+          "status": "passed",
+          "seconds": 0.115
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_concurrent_different_requests_cannot_reserve_same_slot",
+          "status": "passed",
+          "seconds": 0.0797
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_concurrent_same_request_creates_one_row",
+          "status": "passed",
+          "seconds": 0.1157
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_confirmation_updates_same_draft_and_does_not_publish",
+          "status": "passed",
+          "seconds": 0.1166
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_confirmed_slot_taken_requires_fresh_confirmation_for_new_slot",
+          "status": "passed",
+          "seconds": 0.1224
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_conflict_keeps_hard_requirement_and_marks_pending",
+          "status": "passed",
+          "seconds": 0.0729
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_failed_commit_rolls_back_and_reports_failure",
+          "status": "passed",
+          "seconds": 0.071
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_failed_write_cannot_be_overridden_by_model_success_claim",
+          "status": "passed",
+          "seconds": 0.0682
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_invalid_schedule_snapshot_rolls_back_previous_occupancy",
+          "status": "passed",
+          "seconds": 0.0569
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_malicious_material_does_not_disable_rule_guard",
+          "status": "passed",
+          "seconds": 0.0557
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_missing_information_attempts_supplement_and_requests_data",
+          "status": "passed",
+          "seconds": 0.0523
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_model_cannot_claim_completion_without_save",
+          "status": "passed",
+          "seconds": 0.0514
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_model_cannot_confirm_or_publish",
+          "status": "passed",
+          "seconds": 0.0567
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_model_cannot_forge_confirmation_argument",
+          "status": "passed",
+          "seconds": 0.059
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_model_cannot_skip_review_and_save",
+          "status": "passed",
+          "seconds": 0.0545
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_naive_time_is_rejected",
+          "status": "passed",
+          "seconds": 0.0495
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_no_free_slot_ends_without_fake_draft",
+          "status": "passed",
+          "seconds": 0.0967
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_normal_preserves_requested_time_without_publication",
+          "status": "passed",
+          "seconds": 0.0577
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_partial_overlap_is_conflict_but_adjacent_is_available",
+          "status": "passed",
+          "seconds": 0.0412
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_repeated_request_has_one_draft",
+          "status": "passed",
+          "seconds": 0.0673
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_rule_risk_blocks_save",
+          "status": "passed",
+          "seconds": 0.0313
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_same_id_different_input_is_rejected",
+          "status": "passed",
+          "seconds": 0.0277
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_save_time_conflict_is_observed_and_model_queries_again",
+          "status": "passed",
+          "seconds": 0.0314
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_saved_result_cannot_be_mutated_by_further_model_tools",
+          "status": "passed",
+          "seconds": 0.0318
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_supplement_changes_review_and_allows_save",
+          "status": "passed",
+          "seconds": 0.0339
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_timezone_equivalent_request_is_same_idempotent_input",
+          "status": "passed",
+          "seconds": 0.0317
+        },
+        {
+          "test": "tests.test_scheduling.SchedulingTests.test_wrong_confirmation_time_is_rejected",
+          "status": "passed",
+          "seconds": 0.029
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_insecure_remote_endpoint_is_rejected",
+          "status": "passed",
+          "seconds": 0.0014
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_local_ollama_does_not_require_a_key",
+          "status": "passed",
+          "seconds": 0.0009
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_missing_configuration_is_explicit",
+          "status": "passed",
+          "seconds": 0.0009
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_network_errors_do_not_echo_key_or_response",
+          "status": "passed",
+          "seconds": 0.0015
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_observations_are_sent_back_and_next_action_is_parsed",
+          "status": "passed",
+          "seconds": 0.0014
+        },
+        {
+          "test": "tests.test_model_adapter.ModelAdapterTests.test_remote_without_key_is_rejected",
+          "status": "passed",
+          "seconds": 0.0009
+        }
+      ]
+    },
+    {
+      "tier": "2-edge",
+      "passed": true,
+      "tests": 12,
+      "results": [
+        {
+          "test": "tests.test_robustness.EdgeTests.test_blank_channel_is_not_a_separate_valid_channel",
+          "status": "passed",
+          "seconds": 0.019
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_budget_after_save_reports_actual_persistence",
+          "status": "passed",
+          "seconds": 0.027
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_calendar_overflow_is_rejected_at_input",
+          "status": "passed",
+          "seconds": 0.0183
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_cross_midnight_candidate_requires_confirmation",
+          "status": "passed",
+          "seconds": 0.0363
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_id_length_is_bounded",
+          "status": "passed",
+          "seconds": 0.022
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_invalid_duration_types_do_not_save",
+          "status": "passed",
+          "seconds": 0.0299
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_other_channel_does_not_conflict",
+          "status": "passed",
+          "seconds": 0.0379
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_partial_minute_overlap_is_not_missed",
+          "status": "passed",
+          "seconds": 0.0311
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_repeated_confirmation_is_idempotent",
+          "status": "passed",
+          "seconds": 0.0512
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_soft_preference_still_requires_confirmation_on_change",
+          "status": "passed",
+          "seconds": 0.0312
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_unknown_asset_requests_information",
+          "status": "passed",
+          "seconds": 0.0249
+        },
+        {
+          "test": "tests.test_robustness.EdgeTests.test_whitespace_metadata_is_missing",
+          "status": "passed",
+          "seconds": 0.0266
+        }
+      ]
+    },
+    {
+      "tier": "3-difficult",
+      "passed": true,
+      "tests": 9,
+      "results": [
+        {
+          "test": "tests.test_robustness.DifficultTests.test_aba_suggestion_does_not_resurrect_old_consent",
+          "status": "passed",
+          "seconds": 0.0566
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_asset_changes_between_review_and_write_are_rechecked",
+          "status": "passed",
+          "seconds": 0.0205
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_injection_cannot_add_confirmation_tool",
+          "status": "passed",
+          "seconds": 0.0186
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_model_error_after_save_keeps_saved_fact_and_trace_link",
+          "status": "passed",
+          "seconds": 0.0259
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_new_risk_invalidates_existing_ready_draft",
+          "status": "passed",
+          "seconds": 0.0302
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_ready_draft_invalidated_by_new_external_occupancy",
+          "status": "passed",
+          "seconds": 0.0376
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_stale_confirmation_token_cannot_approve_changed_version",
+          "status": "passed",
+          "seconds": 0.0383
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_unexpected_model_envelope_is_sanitized",
+          "status": "passed",
+          "seconds": 0.0201
+        },
+        {
+          "test": "tests.test_robustness.DifficultTests.test_wrong_capacity_finish_returns_correct_recovery_options",
+          "status": "passed",
+          "seconds": 0.0353
+        }
+      ]
+    },
+    {
+      "tier": "4-http-integration",
+      "passed": true,
+      "tests": 11,
+      "results": [
+        {
+          "test": "tests.test_web.WebTests.test_concurrent_ui_submission_is_explicitly_busy",
+          "status": "passed",
+          "seconds": 0.5583
+        },
+        {
+          "test": "tests.test_web.WebTests.test_confirmation_does_not_restore_old_schedule_snapshot",
+          "status": "passed",
+          "seconds": 0.7136
+        },
+        {
+          "test": "tests.test_web.WebTests.test_cross_site_mutation_rejected",
+          "status": "passed",
+          "seconds": 0.561
+        },
+        {
+          "test": "tests.test_web.WebTests.test_home_static_assets_manual_and_api",
+          "status": "passed",
+          "seconds": 0.5922
+        },
+        {
+          "test": "tests.test_web.WebTests.test_invalid_input_is_400_without_draft",
+          "status": "passed",
+          "seconds": 0.5421
+        },
+        {
+          "test": "tests.test_web.WebTests.test_job_repeat_and_confirmation_through_http",
+          "status": "passed",
+          "seconds": 0.7601
+        },
+        {
+          "test": "tests.test_web.WebTests.test_server_restart_keeps_drafts",
+          "status": "passed",
+          "seconds": 0.6037
+        },
+        {
+          "test": "tests.test_web.WebTests.test_simulated_save_failure_returns_actual_failure",
+          "status": "passed",
+          "seconds": 0.573
+        },
+        {
+          "test": "tests.test_web.WebTests.test_stale_browser_confirmation_is_409",
+          "status": "passed",
+          "seconds": 0.6761
+        },
+        {
+          "test": "tests.test_web.WebTests.test_unavailable_model_is_503_not_mock_fallback",
+          "status": "passed",
+          "seconds": 0.5606
+        },
+        {
+          "test": "tests.test_web.WebTests.test_unknown_api_and_path_traversal_return_404",
+          "status": "passed",
+          "seconds": 0.5821
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "total_tests": 69
+}

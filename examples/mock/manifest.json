@@ -1,11 +1,11 @@
 {
   "mode": "mock",
-  "generated_at": "2026-11-06T06:38:27.731032+00:00",
+  "generated_at": "2026-11-06T07:47:38.154178+00:00",
   "python": "3.10.11",
   "cases": [
     {
       "name": "normal",
-      "generated_at": "2026-11-06T06:38:27.750658+00:00",
+      "generated_at": "2026-11-06T07:47:38.169359+00:00",
       "runs": [
         {
           "command_argv": [
@@ -37,7 +37,7 @@
     },
     {
       "name": "missing",
-      "generated_at": "2026-11-06T06:38:28.730321+00:00",
+      "generated_at": "2026-11-06T07:47:38.509991+00:00",
       "runs": [
         {
           "command_argv": [
@@ -69,7 +69,7 @@
     },
     {
       "name": "risk",
-      "generated_at": "2026-11-06T06:38:29.669730+00:00",
+      "generated_at": "2026-11-06T07:47:38.830004+00:00",
       "runs": [
         {
           "command_argv": [
@@ -101,7 +101,7 @@
     },
     {
       "name": "conflict",
-      "generated_at": "2026-11-06T06:38:30.610895+00:00",
+      "generated_at": "2026-11-06T07:47:39.078511+00:00",
       "runs": [
         {
           "command_argv": [
@@ -133,7 +133,7 @@
     },
     {
       "name": "duplicate",
-      "generated_at": "2026-11-06T06:38:31.425169+00:00",
+      "generated_at": "2026-11-06T07:47:39.316767+00:00",
       "runs": [
         {
           "command_argv": [
@@ -191,7 +191,7 @@
     },
     {
       "name": "save-failure",
-      "generated_at": "2026-11-06T06:38:31.896696+00:00",
+      "generated_at": "2026-11-06T07:47:39.796188+00:00",
       "runs": [
         {
           "command_argv": [
@@ -224,7 +224,7 @@
     },
     {
       "name": "supplement",
-      "generated_at": "2026-11-06T06:38:32.166835+00:00",
+      "generated_at": "2026-11-06T07:47:40.038176+00:00",
       "runs": [
         {
           "command_argv": [
@@ -256,7 +256,7 @@
     },
     {
       "name": "changed-occupancy",
-      "generated_at": "2026-11-06T06:38:32.432072+00:00",
+      "generated_at": "2026-11-06T07:47:40.447029+00:00",
       "runs": [
         {
           "command_argv": [
@@ -314,7 +314,7 @@
     },
     {
       "name": "confirmation",
-      "generated_at": "2026-11-06T06:38:32.976734+00:00",
+      "generated_at": "2026-11-06T07:47:42.087123+00:00",
       "runs": [
         {
           "command_argv": [
@@ -372,7 +372,7 @@
     },
     {
       "name": "batch",
-      "generated_at": "2026-11-06T06:38:34.838742+00:00",
+      "generated_at": "2026-11-06T07:47:44.685899+00:00",
       "runs": [
         {
           "command_argv": [
@@ -406,7 +406,7 @@
     },
     {
       "name": "budget",
-      "generated_at": "2026-11-06T06:38:35.771926+00:00",
+      "generated_at": "2026-11-06T07:47:45.613470+00:00",
       "runs": [
         {
           "command_argv": [
@@ -439,5 +439,5 @@
       ]
     }
   ],
-  "updated_at": "2026-11-06T06:38:36.649112+00:00"
+  "updated_at": "2026-11-06T07:47:45.966036+00:00"
 }

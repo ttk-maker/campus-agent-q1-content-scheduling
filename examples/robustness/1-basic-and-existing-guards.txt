@@ -1,0 +1,42 @@
+test_asset_change_invalidates_old_confirmation (tests.test_scheduling.SchedulingTests) ... ok
+test_batch_returns_each_item_and_avoids_ready_draft_conflicts (tests.test_scheduling.SchedulingTests) ... ok
+test_boolean_duration_is_not_accepted_as_integer (tests.test_scheduling.SchedulingTests) ... ok
+test_budget_is_global_and_unprocessed_items_are_explicit (tests.test_scheduling.SchedulingTests) ... ok
+test_changed_schedule_is_observed_on_same_request_and_database (tests.test_scheduling.SchedulingTests) ... ok
+test_concurrent_different_requests_cannot_reserve_same_slot (tests.test_scheduling.SchedulingTests) ... ok
+test_concurrent_same_request_creates_one_row (tests.test_scheduling.SchedulingTests) ... ok
+test_confirmation_updates_same_draft_and_does_not_publish (tests.test_scheduling.SchedulingTests) ... ok
+test_confirmed_slot_taken_requires_fresh_confirmation_for_new_slot (tests.test_scheduling.SchedulingTests) ... ok
+test_conflict_keeps_hard_requirement_and_marks_pending (tests.test_scheduling.SchedulingTests) ... ok
+test_failed_commit_rolls_back_and_reports_failure (tests.test_scheduling.SchedulingTests) ... ok
+test_failed_write_cannot_be_overridden_by_model_success_claim (tests.test_scheduling.SchedulingTests) ... ok
+test_invalid_schedule_snapshot_rolls_back_previous_occupancy (tests.test_scheduling.SchedulingTests) ... ok
+test_malicious_material_does_not_disable_rule_guard (tests.test_scheduling.SchedulingTests) ... ok
+test_missing_information_attempts_supplement_and_requests_data (tests.test_scheduling.SchedulingTests) ... ok
+test_model_cannot_claim_completion_without_save (tests.test_scheduling.SchedulingTests) ... ok
+test_model_cannot_confirm_or_publish (tests.test_scheduling.SchedulingTests) ... ok
+test_model_cannot_forge_confirmation_argument (tests.test_scheduling.SchedulingTests) ... ok
+test_model_cannot_skip_review_and_save (tests.test_scheduling.SchedulingTests) ... ok
+test_naive_time_is_rejected (tests.test_scheduling.SchedulingTests) ... ok
+test_no_free_slot_ends_without_fake_draft (tests.test_scheduling.SchedulingTests) ... ok
+test_normal_preserves_requested_time_without_publication (tests.test_scheduling.SchedulingTests) ... ok
+test_partial_overlap_is_conflict_but_adjacent_is_available (tests.test_scheduling.SchedulingTests) ... ok
+test_repeated_request_has_one_draft (tests.test_scheduling.SchedulingTests) ... ok
+test_rule_risk_blocks_save (tests.test_scheduling.SchedulingTests) ... ok
+test_same_id_different_input_is_rejected (tests.test_scheduling.SchedulingTests) ... ok
+test_save_time_conflict_is_observed_and_model_queries_again (tests.test_scheduling.SchedulingTests) ... ok
+test_saved_result_cannot_be_mutated_by_further_model_tools (tests.test_scheduling.SchedulingTests) ... ok
+test_supplement_changes_review_and_allows_save (tests.test_scheduling.SchedulingTests) ... ok
+test_timezone_equivalent_request_is_same_idempotent_input (tests.test_scheduling.SchedulingTests) ... ok
+test_wrong_confirmation_time_is_rejected (tests.test_scheduling.SchedulingTests) ... ok
+test_insecure_remote_endpoint_is_rejected (tests.test_model_adapter.ModelAdapterTests) ... ok
+test_local_ollama_does_not_require_a_key (tests.test_model_adapter.ModelAdapterTests) ... ok
+test_missing_configuration_is_explicit (tests.test_model_adapter.ModelAdapterTests) ... ok
+test_network_errors_do_not_echo_key_or_response (tests.test_model_adapter.ModelAdapterTests) ... ok
+test_observations_are_sent_back_and_next_action_is_parsed (tests.test_model_adapter.ModelAdapterTests) ... ok
+test_remote_without_key_is_rejected (tests.test_model_adapter.ModelAdapterTests) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.022s
+
+OK

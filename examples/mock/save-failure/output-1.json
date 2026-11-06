@@ -19,6 +19,7 @@
       "pending_confirmations": [],
       "draft_id": null,
       "draft_status": null,
+      "confirmation_token": null,
       "save_status": "failed",
       "published": false,
       "error": "storage_write_failed"

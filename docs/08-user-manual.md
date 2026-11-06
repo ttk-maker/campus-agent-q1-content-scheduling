@@ -85,7 +85,7 @@ py -3.10 -m src.web --port 8766 --db runtime/fresh-demo.db
 
 同一服务进程中刷新网页可恢复最近任务及输入；页面关闭不会取消后台执行。运行中的任务限制为一个，重复提交会得到“已有任务正在执行”。服务重启后内存中的运行记录不保留，但 SQLite 草稿保留；可重提相同编号验证原草稿。
 
-默认库为 runtime/web-drafts.db，CLI 默认库为 runtime/drafts.db，两者分开。两种入口需要共享状态时显式传入相同 --db，并避免同时替换占用快照。
+默认库为 runtime/workbench.db，CLI 默认库为 runtime/drafts.db，两者分开。两种入口需要共享状态时显式传入相同 --db，并避免同时替换占用快照。开发期间的 browser 验证库另存，不与默认操作库混用。
 
 ## 8. 常见问题
 

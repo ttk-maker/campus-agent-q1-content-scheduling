@@ -19,6 +19,7 @@
       "pending_confirmations": [],
       "draft_id": "draft-f75c796a2d0bdb2f09b6",
       "draft_status": "ready",
+      "confirmation_token": null,
       "save_status": "saved",
       "published": false,
       "error": null
@@ -42,6 +43,7 @@
       ],
       "draft_id": "draft-52686697373757150c12",
       "draft_status": "pending_confirmation",
+      "confirmation_token": "25d0484285baa29bd4c7a100117688708ff2383a67fbd67ecb488269a8001017",
       "save_status": "saved",
       "published": false,
       "error": null
@@ -61,6 +63,7 @@
       "pending_confirmations": [],
       "draft_id": null,
       "draft_status": null,
+      "confirmation_token": null,
       "save_status": "not_attempted",
       "published": false,
       "error": null

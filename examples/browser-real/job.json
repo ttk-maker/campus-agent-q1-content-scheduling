@@ -1,0 +1,284 @@
+{
+  "job_id": "0837dc971186405292b02cadaec0b47b",
+  "state": "done",
+  "payload": {
+    "request": {
+      "request_id": "web-19297b0c-f85",
+      "items": [
+        {
+          "asset_id": "M01",
+          "requested_at": "2026-11-07T18:00:00+08:00",
+          "hard_time": true
+        }
+      ]
+    },
+    "data": {
+      "assets": {
+        "M01": {
+          "title": "秋季产品介绍",
+          "text": "合成演示素材",
+          "channel": "brand-main",
+          "duration_minutes": 60,
+          "copyright_status": "cleared"
+        },
+        "M02": {
+          "title": "待补充授权说明",
+          "text": "资料缺失演示",
+          "channel": "brand-main",
+          "duration_minutes": 60
+        },
+        "M03": {
+          "title": "保证收益的推广文案",
+          "text": "规则风险演示",
+          "channel": "brand-main",
+          "duration_minutes": 60,
+          "copyright_status": "cleared"
+        },
+        "M04": {
+          "title": "可补齐资料",
+          "text": "补查演示",
+          "channel": "brand-main",
+          "duration_minutes": 60
+        },
+        "M05": {
+          "title": "第二份正常素材",
+          "text": "批量演示",
+          "channel": "brand-main",
+          "duration_minutes": 60,
+          "copyright_status": "cleared"
+        }
+      },
+      "supplements": {
+        "M04": {
+          "copyright_status": "cleared"
+        }
+      },
+      "rules": {
+        "required_fields": [
+          "title",
+          "channel",
+          "duration_minutes",
+          "copyright_status"
+        ],
+        "blocked_terms": [
+          "保证收益",
+          "100%治愈"
+        ]
+      },
+      "occupied": [
+        {
+          "id": "existing-1800",
+          "channel": "brand-main",
+          "start": "2026-11-07T18:00:00+08:00",
+          "duration_minutes": 60
+        }
+      ]
+    },
+    "mode": "real",
+    "max_steps": 24,
+    "fail_save": false
+  },
+  "created_at": "2026-11-06T07:37:07.427914+00:00",
+  "result": {
+    "request_id": "web-19297b0c-f85",
+    "mode": "real",
+    "model": "qwen2.5:7b-instruct",
+    "max_steps": 24,
+    "steps_used": 7,
+    "published": false,
+    "items": [
+      {
+        "asset_id": "M01",
+        "status": "needs_confirmation",
+        "review_status": "passed",
+        "risk_reasons": [],
+        "missing_fields": [],
+        "requested_at": "2026-11-07T18:00:00+08:00",
+        "hard_time": true,
+        "suggested_at": "2026-11-07T11:00:00+00:00",
+        "effective_at": null,
+        "pending_confirmations": [
+          {
+            "type": "time_change",
+            "original": "2026-11-07T18:00:00+08:00",
+            "suggested": "2026-11-07T11:00:00+00:00"
+          }
+        ],
+        "draft_id": "draft-a9004460be6da5217f35",
+        "draft_status": "pending_confirmation",
+        "confirmation_token": "636efe84f975cd0bf3db123618b01cfaac9edaab071308798793d83c62f27c36",
+        "save_status": "saved",
+        "published": false,
+        "error": null
+      }
+    ]
+  },
+  "trace": [
+    {
+      "step": 1,
+      "asset_id": "M01",
+      "action": {
+        "tool": "read_asset",
+        "arguments": {
+          "include_supplement": false
+        },
+        "reason": "Initial asset read to check content and schedule."
+      },
+      "observation": {
+        "status": "ok",
+        "metadata": {
+          "title": "秋季产品介绍",
+          "text": "合成演示素材",
+          "channel": "brand-main",
+          "duration_minutes": 60,
+          "copyright_status": "cleared"
+        },
+        "supplement_checked": false
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "asset_id": "M01",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "reason": "Verify if the asset meets the scheduling rules."
+      },
+      "observation": {
+        "status": "passed",
+        "missing": [],
+        "risks": []
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "asset_id": "M01",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "reason": "Check for available slots to schedule the asset."
+      },
+      "observation": {
+        "status": "ok",
+        "slots": [
+          {
+            "start": "2026-11-07T18:00:00+08:00",
+            "available": false,
+            "conflicts": [
+              "existing-1800"
+            ]
+          },
+          {
+            "start": "2026-11-07T19:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "start": "2026-11-07T20:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "start": "2026-11-07T21:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          }
+        ]
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "asset_id": "M01",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "suggested_at": "2026-11-07T18:30:00+08:00"
+        },
+        "reason": "Suggest a slot for the asset and save the draft."
+      },
+      "observation": {
+        "status": "rejected",
+        "error": "available_candidate_required"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 5,
+      "asset_id": "M01",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "reason": "Re-check slots as the previous suggestion was rejected for being unavailable."
+      },
+      "observation": {
+        "status": "ok",
+        "slots": [
+          {
+            "start": "2026-11-07T18:00:00+08:00",
+            "available": false,
+            "conflicts": [
+              "existing-1800"
+            ]
+          },
+          {
+            "start": "2026-11-07T19:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "start": "2026-11-07T20:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          },
+          {
+            "start": "2026-11-07T21:00:00+08:00",
+            "available": true,
+            "conflicts": []
+          }
+        ]
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 6,
+      "asset_id": "M01",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "suggested_at": "2026-11-07T19:00:00+08:00"
+        },
+        "reason": "Suggest the next available slot and save the draft."
+      },
+      "observation": {
+        "status": "saved",
+        "draft_id": "draft-a9004460be6da5217f35",
+        "draft_status": "pending_confirmation",
+        "suggested_at": "2026-11-07T11:00:00+00:00",
+        "save_succeeded": true,
+        "user_confirmation_required": true,
+        "operation_complete": true
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 7,
+      "asset_id": "M01",
+      "action": {
+        "tool": "finish",
+        "arguments": {
+          "outcome": "completed"
+        },
+        "reason": "Draft operation finished."
+      },
+      "observation": {
+        "status": "finished",
+        "outcome": "completed"
+      },
+      "next_action": "stop:completed"
+    }
+  ],
+  "error": null
+}

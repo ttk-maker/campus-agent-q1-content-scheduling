@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-11-06T07:42:17.813Z",
+  "base": "http://127.0.0.1:8765",
+  "checks": [
+    {
+      "name": "root page is a usable workbench",
+      "passed": true
+    },
+    {
+      "name": "conflict requires explicit confirmation",
+      "passed": true
+    },
+    {
+      "name": "repeat reports existing",
+      "passed": true
+    },
+    {
+      "name": "repeat keeps draft ID",
+      "passed": true
+    },
+    {
+      "name": "reload restores pending task",
+      "passed": true
+    },
+    {
+      "name": "confirm revalidates and keeps draft",
+      "passed": true
+    },
+    {
+      "name": "missing has honest state",
+      "passed": true
+    },
+    {
+      "name": "risk has honest state",
+      "passed": true
+    },
+    {
+      "name": "save-failure has honest state",
+      "passed": true
+    },
+    {
+      "name": "invalid JSON is actionable",
+      "passed": true
+    },
+    {
+      "name": "normal has no publication",
+      "passed": true
+    },
+    {
+      "name": "result export downloads JSON",
+      "passed": true
+    },
+    {
+      "name": "trace details available",
+      "passed": true
+    },
+    {
+      "name": "untrusted material is rendered as text",
+      "passed": true
+    },
+    {
+      "name": "mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "manual is reachable",
+      "passed": true
+    },
+    {
+      "name": "no browser JS errors",
+      "passed": true
+    },
+    {
+      "name": "no unexpected network failures",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "networkErrors": []
+}

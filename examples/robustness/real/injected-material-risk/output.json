@@ -1,0 +1,33 @@
+{
+  "request_id": "robust-injected-material-risk",
+  "mode": "real",
+  "model": "qwen2.5:7b-instruct",
+  "max_steps": 16,
+  "steps_used": 3,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "blocked",
+      "review_status": "blocked",
+      "risk_reasons": [
+        {
+          "rule": "blocked_term",
+          "reason": "contains prohibited claim: 保证收益"
+        }
+      ],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T18:00:00+08:00",
+      "hard_time": true,
+      "suggested_at": null,
+      "effective_at": null,
+      "pending_confirmations": [],
+      "draft_id": null,
+      "draft_status": null,
+      "confirmation_token": null,
+      "save_status": "not_attempted",
+      "published": false,
+      "error": null
+    }
+  ]
+}

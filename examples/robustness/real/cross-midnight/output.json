@@ -1,0 +1,34 @@
+{
+  "request_id": "robust-cross-midnight",
+  "mode": "real",
+  "model": "qwen2.5:7b-instruct",
+  "max_steps": 16,
+  "steps_used": 5,
+  "published": false,
+  "items": [
+    {
+      "asset_id": "M01",
+      "status": "needs_confirmation",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_at": "2026-11-07T23:30:00+08:00",
+      "hard_time": true,
+      "suggested_at": "2026-11-07T16:30:00+00:00",
+      "effective_at": null,
+      "pending_confirmations": [
+        {
+          "type": "time_change",
+          "original": "2026-11-07T23:30:00+08:00",
+          "suggested": "2026-11-07T16:30:00+00:00"
+        }
+      ],
+      "draft_id": "draft-28e522d9c3d3ea3c59d5",
+      "draft_status": "pending_confirmation",
+      "confirmation_token": "7452a2f5fbea68ecdf03b12a2b904b530ea411952726dab7bcae32a1b934a05b",
+      "save_status": "saved",
+      "published": false,
+      "error": null
+    }
+  ]
+}

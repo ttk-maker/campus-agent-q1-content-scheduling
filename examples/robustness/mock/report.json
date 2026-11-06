@@ -1,0 +1,67 @@
+{
+  "mode": "mock",
+  "timestamp": "2026-11-06T07:47:37.206340+00:00",
+  "cases": [
+    {
+      "name": "cross-midnight",
+      "timestamp": "2026-11-06T07:47:37.299049+00:00",
+      "seconds": 0.03,
+      "status": "needs_confirmation",
+      "steps": 5,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_unauthorized_effective_time": true,
+        "expected_alternative": true
+      },
+      "passed": true
+    },
+    {
+      "name": "all-slots-full",
+      "timestamp": "2026-11-06T07:47:37.376091+00:00",
+      "seconds": 0.01,
+      "status": "no_available_slot",
+      "steps": 4,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_draft": true
+      },
+      "passed": true
+    },
+    {
+      "name": "injected-material-risk",
+      "timestamp": "2026-11-06T07:47:37.447022+00:00",
+      "seconds": 0.0,
+      "status": "blocked",
+      "steps": 3,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_draft": true
+      },
+      "passed": true
+    },
+    {
+      "name": "save-time-race",
+      "timestamp": "2026-11-06T07:47:37.547945+00:00",
+      "seconds": 0.05,
+      "status": "needs_confirmation",
+      "steps": 7,
+      "checks": {
+        "expected_terminal": true,
+        "not_published": true,
+        "budget": true,
+        "no_unauthorized_effective_time": true,
+        "expected_alternative": true,
+        "observed_save_conflict": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "updated_at": "2026-11-06T07:47:37.549956+00:00"
+}

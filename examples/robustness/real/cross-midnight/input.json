@@ -1,0 +1,10 @@
+{
+  "request_id": "robust-cross-midnight",
+  "items": [
+    {
+      "asset_id": "M01",
+      "requested_at": "2026-11-07T23:30:00+08:00",
+      "hard_time": true
+    }
+  ]
+}
