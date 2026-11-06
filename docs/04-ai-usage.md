@@ -15,3 +15,8 @@
 使用技能：planning-and-task-breakdown、git-workflow-and-versioning、api-and-interface-design、figma-generate-diagram（流程规范，图稿经用户改选 SVG）、OpenAI Docs（兼容接口格式核查）。
 
 第二轮用户要求：按基础→边缘→困难开展冒烟、解决页面 404、联调前后端并提供手册。用户给出具体 404 URL http://localhost:11434/v1。助手复现其为 API 前缀而非网页，新增本地 Web 工作台；编写对抗边界测试，保留首次 9 项失败和 2 项错误，实施修复；执行 HTTP、真实浏览器及本地 Qwen 验证。新增辅助技能为 debugging-and-error-recovery、frontend-ui-engineering、browser-testing-with-devtools。没有将这些操作归因于用户亲自编写或测试。
+
+
+## 2026-11-06 Tweaks 参考优化
+
+用户提供 Open Design Tweaks 作为方向；AI 查看页面及公开示例，独立实现三工作台的显示控件、实时输入预览和布局，执行浏览器/HTTP验证并记录证据。后端与模型不变，原业务 JavaScript 保留为前缀；本轮不声称重新验证真实模型。参见 [设计与实际验证](11-live-tweaks.md)。

@@ -42,6 +42,11 @@ jobs:
           PLAYWRIGHT_CHANNEL: chromium
           UI_OUTPUT: examples/ui-refinement/ci
           WEB_URL: http://127.0.0.1:8765
+      - run: node scripts/tweaks-review.cjs
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+          TWEAKS_OUTPUT: examples/tweaks/ci
+          WEB_URL: http://127.0.0.1:8765
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -50,3 +55,4 @@ jobs:
             examples/browser-ci/
             examples/ui-refinement/ci/
             runtime/server.log
+            examples/tweaks/ci/

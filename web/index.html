@@ -7,13 +7,10 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="/app.js" defer></script>
   </head>
-  <body><a class="skip-link" href="#workspace-main">跳到主要内容</a>
+  <body data-project="q1"><a class="skip-link" href="#workspace-main">跳到主要内容</a>
     <header>
       <a class="brand" href="/">排期工作台<span>CONTENT OPERATIONS</span></a>
-      <nav>
-        <span class="local">本地工作区</span
-        ><a href="/manual.html">使用手册 ↗</a>
-      </nav>
+      <nav class="header-actions"><a href="/manual.html">使用手册 ↗</a><button type="button" id="open-display" class="secondary" aria-haspopup="dialog">显示设置</button></nav>
     </header>
     <main id="workspace-main">
       <section class="intro">
@@ -25,7 +22,7 @@
       <div class="workspace">
         <section class="panel input-panel">
           <div class="section-title">
-            <span class="step">01</span>
+
             <div>
               <h2>提交审核</h2>
 
@@ -80,7 +77,7 @@
                 checked
               />硬性时间：改时需我确认</label
             >
-            <details id="advanced">
+            <div class="parameter-tweak"><label for="parameter-range">步骤上限<output id="parameter-value" for="parameter-range">—</output></label><input id="parameter-range" type="range" min="1" max="100" step="1" aria-describedby="parameter-help"><div class="range-ends"><span>1 步</span><span id="parameter-max"></span></div><p class="help" id="parameter-help">拖动只更新输入，点击运行后生效。精确数值可直接填写。</p></div><details id="advanced">
               <summary>高级资料与批量请求</summary>
               <label for="items"
                 >素材请求列表（JSON，以此提交）</label
@@ -113,9 +110,9 @@
       </div>
 
         </section>
-        <section class="panel result-panel">
+        <section class="panel result-panel"><section class="live-brief" aria-label="当前输入预览"><div class="brief-heading"><strong>当前输入</strong><span id="brief-mode"></span></div><dl class="brief-values"><div><dt>素材 / 批量请求</dt><dd id="brief-0">—</dd></div><div><dt>首项原定时间</dt><dd id="brief-1">—</dd></div><div><dt>确认边界</dt><dd id="brief-2">—</dd></div></dl><p class="help">修改参数后需重新运行；下方结果不会随预览更新。</p></section>
           <div class="section-title">
-            <span class="step">02</span>
+
             <div>
               <h2>审核结果</h2>
               <p id="result-subtitle"></p>
@@ -145,7 +142,7 @@
       </div>
       <section class="panel draft-panel">
         <div class="section-title">
-          <span class="step">03</span>
+
           <div>
             <h2>已保存草稿</h2>
             <p>
@@ -172,5 +169,15 @@
         合成素材与规则 · 关闭页面不会撤销草稿
       </footer>
     </main>
-  </body>
+
+<dialog id="display-settings" class="tweaks-dialog" aria-labelledby="display-title" aria-describedby="display-note">
+  <div class="tweaks-heading"><h2 id="display-title">显示设置</h2><button id="close-display" class="secondary" type="button" autofocus>关闭</button></div>
+  <p class="help">即时调整工作台外观。</p>
+<fieldset><legend>主题色</legend><div class="tweaks-options"><button type="button" data-setting="accent" data-value="green" aria-pressed="false"><span class="swatch swatch-green" aria-hidden="true"></span>松绿</button><button type="button" data-setting="accent" data-value="blue" aria-pressed="false"><span class="swatch swatch-blue" aria-hidden="true"></span>湖蓝</button><button type="button" data-setting="accent" data-value="clay" aria-pressed="false"><span class="swatch swatch-clay" aria-hidden="true"></span>陶土</button><button type="button" data-setting="accent" data-value="plum" aria-pressed="false"><span class="swatch swatch-plum" aria-hidden="true"></span>梅紫</button></div></fieldset>
+<fieldset><legend>明暗</legend><div class="tweaks-options"><button type="button" data-setting="theme" data-value="light" aria-pressed="false">浅色</button><button type="button" data-setting="theme" data-value="dark" aria-pressed="false">深色</button></div></fieldset>
+<fieldset><legend>字号</legend><div class="tweaks-options"><button type="button" data-setting="type" data-value="normal" aria-pressed="false">标准</button><button type="button" data-setting="type" data-value="large" aria-pressed="false">大字</button></div></fieldset>
+<fieldset><legend>间距</legend><div class="tweaks-options"><button type="button" data-setting="density" data-value="comfortable" aria-pressed="false">舒适</button><button type="button" data-setting="density" data-value="compact" aria-pressed="false">紧凑</button></div></fieldset>
+<fieldset><legend>动效</legend><div class="tweaks-options"><button type="button" data-setting="motion" data-value="off" aria-pressed="false">关闭</button><button type="button" data-setting="motion" data-value="subtle" aria-pressed="false">轻微</button></div></fieldset>
+<button type="button" id="reset-display" class="secondary">恢复默认显示</button><p id="display-note" class="help" role="status">仅在此浏览器记住显示设置，不影响任务数据。</p></dialog>
+</body>
 </html>

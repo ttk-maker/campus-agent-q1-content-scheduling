@@ -125,3 +125,10 @@ python -m src.cli run --request data/requests/normal.json --db runtime/budget.db
 ## 前端优化与复用 Skill
 
 [四向优化记录](docs/10-ui-refinement.md) · [frontend-four-pass Skill](docs/skills/frontend-four-pass/SKILL.md) · [展示检查](examples/ui-refinement/presentation/report.json)。本轮只调整展示与信息层级，后端及模型逻辑保持不变。
+
+
+## 实时调参与显示设置
+
+结果画布 + 参数侧栏，支持业务输入预览和主题色 / 明暗 / 字号 / 密度 / 动效设置。外观即时生效，Agent 仍由原运行按钮显式执行。
+
+[使用说明与设计边界](docs/11-live-tweaks.md) · [交互验证](examples/tweaks/interaction/report.json) · [新版截图](examples/tweaks/interaction/success-desktop.png)

@@ -1,0 +1,782 @@
+{
+  "project": "q1",
+  "timestamp": "2026-11-06T15:53:12.788Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "backend source hashes unchanged",
+      "passed": true
+    },
+    {
+      "name": "original business JavaScript prefix unchanged",
+      "passed": true
+    },
+    {
+      "name": "dialog opens with focus inside",
+      "passed": true
+    },
+    {
+      "name": "modal keyboard focus stays inside",
+      "passed": true
+    },
+    {
+      "name": "light/green readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "light/blue readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "light/clay readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "light/plum readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "dark/green readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "dark/blue readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "dark/clay readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "dark/plum readable semantic colors",
+      "passed": true
+    },
+    {
+      "name": "live larger body text",
+      "passed": true
+    },
+    {
+      "name": "reduced motion overrides preference",
+      "passed": true
+    },
+    {
+      "name": "Escape closes and restores focus",
+      "passed": true
+    },
+    {
+      "name": "appearance leaves business inputs untouched",
+      "passed": true
+    },
+    {
+      "name": "appearance makes no API writes",
+      "passed": true
+    },
+    {
+      "name": "display preferences persist",
+      "passed": true
+    },
+    {
+      "name": "reset preserves business inputs and other storage",
+      "passed": true
+    },
+    {
+      "name": "reset restores default display",
+      "passed": true
+    },
+    {
+      "name": "numeric entry synchronizes without rounding or clamping",
+      "passed": true
+    },
+    {
+      "name": "missing numeric input stays missing",
+      "passed": true
+    },
+    {
+      "name": "keyboard slider updates original numeric input",
+      "passed": true
+    },
+    {
+      "name": "parameter changes do not run Agent",
+      "passed": true
+    },
+    {
+      "name": "new slider disabled during execution",
+      "passed": true
+    },
+    {
+      "name": "explicit run submits unchanged API payload",
+      "passed": true
+    },
+    {
+      "name": "input preview updates without rewriting result",
+      "passed": true
+    },
+    {
+      "name": "preview clearly distinguishes pending inputs",
+      "passed": true
+    },
+    {
+      "name": "theme preserves computed result and saved job storage",
+      "passed": true
+    },
+    {
+      "name": "390 large-text dialog fits viewport",
+      "passed": true
+    },
+    {
+      "name": "390 large-text page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320 large-text dialog fits viewport",
+      "passed": true
+    },
+    {
+      "name": "320 large-text page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "invalid stored settings fall back to safe defaults",
+      "passed": true
+    },
+    {
+      "name": "malformed preferences do not break page",
+      "passed": true
+    },
+    {
+      "name": "blocked preference storage still allows temporary theme",
+      "passed": true
+    },
+    {
+      "name": "no browser, CSP, or HTTP errors",
+      "passed": true
+    }
+  ],
+  "contrast": [
+    {
+      "theme": "light",
+      "accent": "green",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 12.092679940252484
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 5.502429937720891
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 5.278343211195439
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 6.44712351477429
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 7.545110515414604
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 7.545110515414604
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 10.511578392490673
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 6.945365807912895
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 6.499074765249515
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 6.312960870241914
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 3.40650123729548
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 6.940032338842994
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "accent": "blue",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 12.092679940252484
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 5.502429937720891
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 5.278343211195439
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 6.052712141673052
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 6.880460826000483
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 6.880460826000483
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 9.34748116643018
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 6.945365807912895
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 6.499074765249515
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 6.312960870241914
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 3.40650123729548
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 6.880460826000483
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "accent": "clay",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 12.092679940252484
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 5.502429937720891
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 5.278343211195439
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 5.857526039389286
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 6.663544575687249
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 6.663544575687249
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 9.119926160761242
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 6.945365807912895
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 6.499074765249515
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 6.312960870241914
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 3.40650123729548
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 6.663544575687249
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "accent": "plum",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 12.092679940252484
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 5.502429937720891
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 5.278343211195439
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 5.333541425377828
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 6.282569530742704
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 6.282569530742704
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 8.754278315411636
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 6.945365807912895
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 6.499074765249515
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 6.312960870241914
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 3.40650123729548
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 6.282569530742704
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "accent": "green",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 13.428068474684348
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 9.532974298527442
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 6.947817832530528
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 6.461988592308526
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 9.113259551196432
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 9.392462309779578
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 11.38453554847986
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 8.49536756907604
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 8.336402262324633
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 8.416585253118363
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 5.149305748545868
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 9.113259551196432
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "accent": "blue",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 13.428068474684348
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 9.532974298527442
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 6.947817832530528
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 6.924541378226073
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 9.216341752977861
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 9.498702639005588
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 11.298068255428914
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 8.49536756907604
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 8.336402262324633
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 8.416585253118363
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 5.149305748545868
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 9.216341752977861
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "accent": "clay",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 13.428068474684348
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 9.532974298527442
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 6.947817832530528
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 7.304890880750686
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 9.732852317282722
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 10.031037527591032
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 12.030084126864082
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 8.49536756907604
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 8.336402262324633
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 8.416585253118363
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 5.149305748545868
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 9.732852317282722
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "accent": "plum",
+      "ratios": [
+        {
+          "fg": "ink",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 13.428068474684348
+        },
+        {
+          "fg": "muted",
+          "bg": "paper",
+          "min": 4.5,
+          "ratio": 9.532974298527442
+        },
+        {
+          "fg": "muted",
+          "bg": "soft",
+          "min": 4.5,
+          "ratio": 6.947817832530528
+        },
+        {
+          "fg": "accent",
+          "bg": "accent-soft",
+          "min": 4.5,
+          "ratio": 7.497183271650465
+        },
+        {
+          "fg": "accent",
+          "bg": "surface",
+          "min": 4.5,
+          "ratio": 9.330525851036377
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent",
+          "min": 4.5,
+          "ratio": 9.616384993092604
+        },
+        {
+          "fg": "button-text",
+          "bg": "accent-hover",
+          "min": 4.5,
+          "ratio": 11.733083833117663
+        },
+        {
+          "fg": "success-text",
+          "bg": "success-bg",
+          "min": 4.5,
+          "ratio": 8.49536756907604
+        },
+        {
+          "fg": "warn-text",
+          "bg": "warn-bg",
+          "min": 4.5,
+          "ratio": 8.336402262324633
+        },
+        {
+          "fg": "error-text",
+          "bg": "error-bg",
+          "min": 4.5,
+          "ratio": 8.416585253118363
+        },
+        {
+          "fg": "control",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 5.149305748545868
+        },
+        {
+          "fg": "focus",
+          "bg": "surface",
+          "min": 3,
+          "ratio": 9.330525851036377
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

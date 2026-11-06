@@ -399,3 +399,94 @@ $("download").addEventListener("click", () => {
     );
   }
 })();
+
+// Presentation-only enhancement. The original application above is unchanged.
+(() => {
+  "use strict";
+  const root = document.documentElement;
+  const q = document.body.dataset.project;
+  const byId = id => document.getElementById(id);
+  const dialog = byId("display-settings");
+  if (!dialog) return;
+  const defaults = {accent:"green", theme:"light", type:"normal", density:"comfortable", motion:"off"};
+  const choices = {accent:["green","blue","clay","plum"], theme:["light","dark"], type:["normal","large"], density:["comfortable","compact"], motion:["off","subtle"]};
+  const key = `agent-${q}-display-v1`;
+  let settings = {...defaults};
+  try {
+    const saved = JSON.parse(localStorage.getItem(key));
+    for (const name of Object.keys(defaults)) {
+      if (choices[name].includes(saved?.[name])) settings[name] = saved[name];
+    }
+  } catch { /* Display preferences are optional, including in restricted storage. */ }
+  function apply(persist = true) {
+    for (const [name, value] of Object.entries(settings)) root.dataset[name] = value;
+    dialog.querySelectorAll("[data-setting]").forEach(button => {
+      button.setAttribute("aria-pressed", String(settings[button.dataset.setting] === button.dataset.value));
+    });
+    if (persist) {
+      try { localStorage.setItem(key, JSON.stringify(settings)); byId("display-note").textContent = "仅在此浏览器记住显示设置，不影响任务数据。"; }
+      catch { byId("display-note").textContent = "浏览器不允许保存偏好；本次显示设置仍然生效。"; }
+    }
+  }
+  byId("open-display").addEventListener("click", () => dialog.showModal());
+  byId("close-display").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("close", () => byId("open-display").focus());
+  dialog.addEventListener("click", event => {
+    const button = event.target.closest("[data-setting]");
+    if (!button) return;
+    settings[button.dataset.setting] = button.dataset.value;
+    apply();
+  });
+  byId("reset-display").addEventListener("click", () => { settings = {...defaults}; apply(); });
+  apply(false);
+
+  const target = byId(q === "q4" ? "target" : "budget");
+  const slider = byId("parameter-range");
+  const run = byId(q === "q1" ? "submit" : "run");
+  const unit = q === "q1" ? "步" : q === "q2" ? "模拟单位" : "秒";
+  const setText = (id, text) => { if (byId(id).textContent !== text) byId(id).textContent = text; };
+  const value = id => byId(id).value.trim() || "待填写";
+  function sync() {
+    const raw = target.value;
+    const number = Number(raw);
+    // Numeric entry remains authoritative. Never fill a missing value or clamp it.
+    slider.max = q === "q2" ? String(Math.max(100, Math.min(100000, Math.ceil(number || 0)))) : target.max;
+    const valid = raw !== "" && target.validity.valid && Number.isFinite(number);
+    slider.hidden = !valid;
+    if (valid) slider.value = raw;
+    slider.disabled = run.disabled || target.disabled;
+    setText("parameter-value", valid ? `${raw} ${unit}` : "请先填写有效数值");
+    setText("parameter-max", slider.max + " " + unit);
+    let brief;
+    if (q === "q1") {
+      try {
+        const items = JSON.parse(byId("items").value);
+        if (!Array.isArray(items) || !items.length) throw Error();
+        brief = [items.map(i => i.asset_id || "缺素材 ID").join("、"), String(items[0].requested_at || "缺时间").replace("T", " "), items.some(i => i.hard_time) ? "含硬性时间 · 改时需确认" : "按请求中的时间约束审核"];
+      } catch { brief = ["请检查素材请求 JSON", "尚不能读取时间", "以高级请求列表为准"]; }
+    } else if (q === "q2") {
+      brief = [value("topic"), value("budget") + (raw ? " 模拟单位" : ""), value("deadline").replace("T", " ")];
+    } else {
+      brief = [value("topic"), value("target") + (raw ? " 秒上限" : ""), `${value("platform")} · ${value("style")}`];
+    }
+    brief.forEach((text, i) => setText("brief-" + i, text));
+    setText("brief-mode", byId("mode").value === "real" ? "真实模型" : "离线演练 · 不代表模型效果");
+  }
+  slider.addEventListener("input", () => {
+    if (slider.disabled) return;
+    target.value = slider.value;
+    target.dispatchEvent(new Event("input", {bubbles:true}));
+    target.dispatchEvent(new Event("change", {bubbles:true}));
+  });
+  // Existing scenario/load handlers can assign values without dispatching input.
+  let frame;
+  function scheduleSync() { cancelAnimationFrame(frame); frame = requestAnimationFrame(sync); }
+  document.querySelector(".workspace").addEventListener("input", scheduleSync);
+  document.querySelector(".workspace").addEventListener("change", scheduleSync);
+  byId("new-id").addEventListener("click", scheduleSync);
+  const observer = new MutationObserver(scheduleSync);
+  observer.observe(byId("notice"), {childList:true, subtree:true, characterData:true});
+  observer.observe(run, {attributes:true, attributeFilter:["disabled"]});
+  observer.observe(target, {attributes:true, attributeFilter:["disabled"]});
+  sync();
+})();

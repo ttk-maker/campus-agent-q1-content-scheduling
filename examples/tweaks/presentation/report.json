@@ -1,0 +1,222 @@
+{
+  "timestamp": "2026-11-06T15:53:59.897Z",
+  "project": "q1",
+  "checks": [
+    {
+      "name": "keyboard skip link visible",
+      "passed": true
+    },
+    {
+      "name": "keyboard focus ring visible",
+      "passed": true
+    },
+    {
+      "name": "contrast ink/surface",
+      "passed": true
+    },
+    {
+      "name": "contrast muted/surface",
+      "passed": true
+    },
+    {
+      "name": "contrast muted/paper",
+      "passed": true
+    },
+    {
+      "name": "contrast muted/soft",
+      "passed": true
+    },
+    {
+      "name": "contrast surface/accent",
+      "passed": true
+    },
+    {
+      "name": "contrast surface/accent-hover",
+      "passed": true
+    },
+    {
+      "name": "contrast success-text/success-bg",
+      "passed": true
+    },
+    {
+      "name": "contrast warn-text/warn-bg",
+      "passed": true
+    },
+    {
+      "name": "contrast error-text/error-bg",
+      "passed": true
+    },
+    {
+      "name": "contrast control/surface",
+      "passed": true
+    },
+    {
+      "name": "contrast focus/surface",
+      "passed": true
+    },
+    {
+      "name": "contrast focus/paper",
+      "passed": true
+    },
+    {
+      "name": "empty four font sizes",
+      "passed": true
+    },
+    {
+      "name": "empty no page overflow",
+      "passed": true
+    },
+    {
+      "name": "empty no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "success four font sizes",
+      "passed": true
+    },
+    {
+      "name": "success no page overflow",
+      "passed": true
+    },
+    {
+      "name": "success no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "attention four font sizes",
+      "passed": true
+    },
+    {
+      "name": "attention no page overflow",
+      "passed": true
+    },
+    {
+      "name": "attention no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "confirmation remains explicit",
+      "passed": true
+    },
+    {
+      "name": "mobile 390 four font sizes",
+      "passed": true
+    },
+    {
+      "name": "mobile 390 no page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile 390 no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "mobile 320 four font sizes",
+      "passed": true
+    },
+    {
+      "name": "mobile 320 no page overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile 320 no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "200 percent text reflows without page overflow",
+      "passed": true
+    },
+    {
+      "name": "manual four font sizes",
+      "passed": true
+    },
+    {
+      "name": "manual no page overflow",
+      "passed": true
+    },
+    {
+      "name": "manual no decorative card shadows",
+      "passed": true
+    },
+    {
+      "name": "no browser or network errors",
+      "passed": true
+    }
+  ],
+  "measurements": [
+    {
+      "fg": "ink",
+      "bg": "surface",
+      "ratio": 12.092679940252484,
+      "min": 4.5
+    },
+    {
+      "fg": "muted",
+      "bg": "surface",
+      "ratio": 5.983662529579162,
+      "min": 4.5
+    },
+    {
+      "fg": "muted",
+      "bg": "paper",
+      "ratio": 5.502429937720891,
+      "min": 4.5
+    },
+    {
+      "fg": "muted",
+      "bg": "soft",
+      "ratio": 5.278343211195439,
+      "min": 4.5
+    },
+    {
+      "fg": "surface",
+      "bg": "accent",
+      "ratio": 7.545110515414604,
+      "min": 4.5
+    },
+    {
+      "fg": "surface",
+      "bg": "accent-hover",
+      "ratio": 10.511578392490673,
+      "min": 4.5
+    },
+    {
+      "fg": "success-text",
+      "bg": "success-bg",
+      "ratio": 6.945365807912895,
+      "min": 4.5
+    },
+    {
+      "fg": "warn-text",
+      "bg": "warn-bg",
+      "ratio": 6.499074765249515,
+      "min": 4.5
+    },
+    {
+      "fg": "error-text",
+      "bg": "error-bg",
+      "ratio": 6.312960870241914,
+      "min": 4.5
+    },
+    {
+      "fg": "control",
+      "bg": "surface",
+      "ratio": 3.40650123729548,
+      "min": 3
+    },
+    {
+      "fg": "focus",
+      "bg": "surface",
+      "ratio": 6.940032338842994,
+      "min": 3
+    },
+    {
+      "fg": "focus",
+      "bg": "paper",
+      "ratio": 6.381884259219172,
+      "min": 3
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

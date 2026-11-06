@@ -1,0 +1,16 @@
+test_concurrent_ui_submission_is_explicitly_busy (test_web.WebTests) ... ok
+test_confirmation_does_not_restore_old_schedule_snapshot (test_web.WebTests) ... ok
+test_cross_site_mutation_rejected (test_web.WebTests) ... ok
+test_home_static_assets_manual_and_api (test_web.WebTests) ... ok
+test_invalid_input_is_400_without_draft (test_web.WebTests) ... ok
+test_job_repeat_and_confirmation_through_http (test_web.WebTests) ... ok
+test_server_restart_keeps_drafts (test_web.WebTests) ... ok
+test_simulated_save_failure_returns_actual_failure (test_web.WebTests) ... ok
+test_stale_browser_confirmation_is_409 (test_web.WebTests) ... ok
+test_unavailable_model_is_503_not_mock_fallback (test_web.WebTests) ... ok
+test_unknown_api_and_path_traversal_return_404 (test_web.WebTests) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 7.664s
+
+OK

@@ -122,3 +122,61 @@ td:last-child{font-family:Consolas,monospace;font-size:var(--font-small);overflo
 
 /* Date/time stays fully readable within the input column. */
 .two-fields{grid-template-columns:1fr}
+
+/* Live display controls inspired by Open Design Tweaks; original implementation. */
+:root{--button-text:#ffffff;--space:24px;--accent-soft:#e7efeb;color-scheme:light}
+:root[data-accent=blue]{--accent:#245aa1;--accent-hover:#18477f;--focus:#245aa1;--accent-soft:#eaf1fb}
+:root[data-accent=clay]{--accent:#94452f;--accent-hover:#763522;--focus:#94452f;--accent-soft:#faeee8}
+:root[data-accent=plum]{--accent:#78518a;--accent-hover:#603d70;--focus:#78518a;--accent-soft:#f1eaf5}
+:root[data-theme=dark]{--ink:#eef2ee;--muted:#b4c4bb;--line:#3a4943;--control:#879b90;--paper:#151c19;--surface:#1e2823;--soft:#29362f;--accent:#9bd5b8;--accent-hover:#b5e7cd;--focus:#9bd5b8;--button-text:#15271f;--accent-soft:#294336;--success-bg:#243d2e;--success-text:#b7e6c5;--warn-bg:#42371f;--warn-text:#f4d793;--error-bg:#442d29;--error-text:#ffc5b6;color-scheme:dark}
+:root[data-theme=dark][data-accent=blue]{--accent:#a8ccff;--accent-hover:#c5ddff;--focus:#a8ccff;--accent-soft:#283b53}
+:root[data-theme=dark][data-accent=clay]{--accent:#ffc1aa;--accent-hover:#ffdacb;--focus:#ffc1aa;--accent-soft:#48362e}
+:root[data-theme=dark][data-accent=plum]{--accent:#dec0f0;--accent-hover:#ecd8f8;--focus:#dec0f0;--accent-soft:#3e3048}
+:root[data-type=large]{--font-small:16px;--font-body:18px;--font-section:24px;--font-title:36px}
+:root[data-density=compact]{--space:16px}
+.primary{color:var(--button-text)}
+body[data-project] header{flex-wrap:wrap}
+.header-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:var(--font-small)}
+.header-actions button{font-size:var(--font-small);padding:8px 14px}
+.workspace{grid-template-columns:minmax(0,1fr) minmax(340px,390px);grid-template-areas:"canvas controls";gap:var(--space)}
+.input-panel,.setup{grid-area:controls;background:var(--soft)}
+.result-panel,.results{grid-area:canvas;min-height:640px}
+.card,.panel{padding:var(--space)}
+.section-heading,.section-title{margin-bottom:var(--space)}
+.hero,.intro{padding-top:32px;padding-bottom:24px}
+.hero .intro{padding:0}
+.workspace label{margin-top:16px}
+:root[data-density=compact] .workspace label{margin-top:12px}
+.input-panel .notice{background:var(--surface)}
+.live-brief{margin:0 0 var(--space);padding:0 0 var(--space);border-bottom:1px solid var(--line)}
+.brief-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:var(--font-small);color:var(--muted)}
+.brief-heading strong{color:var(--accent);font-weight:600}
+.brief-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 0 12px}
+.brief-values div{min-width:0}
+.brief-values dt{font-size:var(--font-small);color:var(--muted);margin-bottom:6px}
+.brief-values dd{margin:0;font-size:var(--font-body);font-weight:600;overflow-wrap:anywhere}
+.live-brief .help{margin:0}
+.parameter-tweak{margin:12px 0 20px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.parameter-tweak label{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:0 0 8px;font-size:var(--font-small)}
+.parameter-tweak output{color:var(--accent);font-weight:600}
+.parameter-tweak input[type=range]{padding:0;width:100%;height:32px;min-height:32px;accent-color:var(--accent);border:0;background:transparent;cursor:pointer}
+.range-ends{display:flex;justify-content:space-between;color:var(--muted);font-size:var(--font-small)}
+.tweaks-dialog{position:fixed;inset:84px 24px auto auto;margin:0;width:380px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 110px);overflow:auto;padding:24px;border:1px solid var(--control);border-radius:var(--radius);background:var(--surface);color:var(--ink);box-shadow:0 16px 60px #0003;font-size:var(--font-body)}
+.tweaks-dialog::backdrop{background:#1118}
+.tweaks-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.tweaks-heading button{font-size:var(--font-small);padding:6px 12px}
+.tweaks-dialog fieldset{padding:16px 0 0;margin:12px 0 0;border:0;border-top:1px solid var(--line);min-width:0}
+.tweaks-dialog legend{font-size:var(--font-small);font-weight:600;padding-right:12px}
+.tweaks-options{display:flex;gap:6px;flex-wrap:wrap}
+.tweaks-options button{flex:1;min-width:0;background:var(--surface);color:var(--muted);border:1px solid var(--control);border-radius:var(--radius);padding:8px;font-size:var(--font-small);line-height:1.5}
+.tweaks-options button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);font-weight:600}
+.swatch{display:block;width:16px;height:16px;border-radius:50%;margin:0 auto 6px;background:var(--swatch);border:1px solid var(--control)}
+.swatch-green{--swatch:#245e4d}.swatch-blue{--swatch:#245aa1}.swatch-clay{--swatch:#94452f}.swatch-plum{--swatch:#78518a}
+#reset-display{width:100%;margin:20px 0 8px}
+#display-note{margin-bottom:0}
+:root[data-motion=off] .spinner{animation:none}
+:root[data-motion=subtle] button{transition:background-color .15s ease,border-color .15s ease}
+@media(prefers-reduced-motion:reduce){:root[data-motion=subtle] button{transition:none}.spinner{animation:none}}
+@media(max-width:1100px){.workspace{grid-template-columns:minmax(0,1fr) 340px}.brief-values{grid-template-columns:1fr}.brief-values div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px}.brief-values dt{margin:0}}
+@media(max-width:900px){.workspace{grid-template-columns:1fr;grid-template-areas:"controls" "canvas"}.result-panel,.results{min-height:360px}.brief-values{grid-template-columns:repeat(3,minmax(0,1fr))}.brief-values div{display:block}}
+@media(max-width:600px){.brief-values{grid-template-columns:1fr;gap:12px}.brief-values div{display:block}.tweaks-dialog{inset:16px 16px auto auto;max-height:calc(100dvh - 32px);padding:20px}.header-actions{gap:12px}.hero,.intro{padding-top:24px}.card,.panel{padding:var(--space)}.metrics{grid-template-columns:1fr}.metrics>div{display:flex;justify-content:space-between;gap:16px}.metrics strong{margin:0}.header-actions a{white-space:nowrap}}
