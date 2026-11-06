@@ -13,5 +13,5 @@
 - [复盘](docs/05-retrospective.md)
 - [动作流原型与痛点](docs/06-prototype-and-hardening.md)
 
-技术选择：Python 3.11+ CLI、标准库 HTTP 模型适配、SQLite 原子持久化。无需第三方 Agent 框架、Web 服务或线上部署。
+技术选择：Python 3.10+ CLI、标准库 HTTP 模型适配、SQLite 原子持久化。无需第三方 Agent 框架、Web 服务或线上部署。
 

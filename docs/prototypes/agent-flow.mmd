@@ -1,0 +1,17 @@
+flowchart TD
+    userInput["用户提交原始要求"] --> modelChoice["模型选择动作"]
+    modelChoice --> guard["工具白名单与预算 P7"]
+    guard --> businessTool["读取 / 规则 / 时段 / 保存"]
+    businessTool --> observation["实际工具观察"]
+    observation --> modelChoice
+    modelChoice --> result["输出审核与草稿事实"]
+    guard -->|"达到上限"| incomplete["明确未完成"]
+    businessTool -.-> sourceRisk["P1 缺资料补查 / P2 风险阻断"]
+    businessTool -.-> timeRisk["P3 改时待确认 / P4 事务复查"]
+    businessTool -.-> writeRisk["P5 唯一草稿 / P6 失败不报成功"]
+    consent["独立用户确认"] --> revalidate["重新审核与检查占用"]
+    revalidate --> businessTool
+    style modelChoice fill:#DCCCFF,stroke:#874FFF
+    style consent fill:#FFECBD,stroke:#FFC943
+    style incomplete fill:#FFCDC2,stroke:#FF7556
+    style result fill:#CDF4D3,stroke:#66D575

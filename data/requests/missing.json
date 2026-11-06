@@ -1,0 +1,10 @@
+{
+  "request_id": "case-missing",
+  "items": [
+    {
+      "asset_id": "M02",
+      "requested_at": "2026-11-07T18:00:00+08:00",
+      "hard_time": true
+    }
+  ]
+}

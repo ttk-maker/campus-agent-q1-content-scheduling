@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1390" viewBox="0 0 1800 1390">
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#66758b"/></marker></defs>
+<rect width="1800" height="1390" fill="#f3f5fa"/>
+<text x="48" y="48" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#626b88" font-weight="600">CAMPUS AGENT  /  PROJECT 01</text>
+<text x="48" y="96" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" fill="#192940" font-weight="600">素材审核与发布排期 · 可靠动作流</text>
+<text x="48" y="133" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#526279" font-weight="400">模型选择下一步；工具守住业务边界；数据库提供保存事实。</text>
+<rect x="1410" y="45" width="340" height="60" rx="16" fill="#192940" stroke="#192940"/>
+<text x="1434" y="84" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#ffffff" font-weight="600">交付范围：仅草稿，不发布</text>
+<rect x="40" y="165" width="1165" height="660" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="65" y="205" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" fill="#192940" font-weight="600">01  模型—工具—观察闭环</text>
+<text x="65" y="236" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">每次工具返回后，由模型重新选择动作；全请求有执行预算。</text>
+<rect x="65" y="275" width="235" height="115" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="85" y="309" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">用户提交需求</text>
+<text x="85" y="340" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">素材 ID / 原始时间</text>
+<text x="85" y="367" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">硬性要求 / 稳定请求 ID</text>
+<rect x="345" y="275" width="235" height="115" rx="16" fill="#e9e8ff" stroke="#b5adf0"/>
+<text x="365" y="309" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">模型选择动作</text>
+<text x="365" y="340" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">补查 / 换候选 / 结束</text>
+<text x="365" y="367" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">只输出动作与简短理由</text>
+<rect x="625" y="275" width="235" height="115" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="645" y="309" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">执行器校验</text>
+<text x="645" y="340" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">工具白名单 / 参数校验</text>
+<text x="645" y="367" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">P7：执行预算与越权拦截</text>
+<rect x="905" y="275" width="270" height="115" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="925" y="309" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">执行工具并观察</text>
+<text x="925" y="340" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">业务检查与实际存储结果</text>
+<text x="925" y="367" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">观察返回模型，禁止预写日志</text>
+<polyline points="300,330 345,330" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="580,330 625,330" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="860,330 905,330" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1040,390 1040,430 460,430 460,390" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="640" y="418" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#6255b0" font-weight="400">返回实际观察 → 再决策</text>
+<rect x="65" y="480" width="255" height="155" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="85" y="514" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">素材读取 / 规则检查</text>
+<text x="85" y="545" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">信息不全 → 补查资料</text>
+<text x="85" y="572" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">仍缺失 → 请求补充</text>
+<text x="85" y="599" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">风险命中 → 阻断</text>
+<rect x="345" y="480" width="255" height="155" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="365" y="514" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">查询可用时段</text>
+<text x="365" y="545" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">原定时段空闲 → 保留</text>
+<text x="365" y="572" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">冲突 → 建议候选时间</text>
+<text x="365" y="599" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">全部占用 → 明确无可用</text>
+<rect x="625" y="480" width="255" height="155" rx="16" fill="#fff4d7" stroke="#e5bd58"/>
+<text x="645" y="514" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">保存前强制守卫</text>
+<text x="645" y="545" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">原始要求保持不变</text>
+<text x="645" y="572" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">未确认改时 → 待确认</text>
+<text x="645" y="599" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">事务内再次检查时段</text>
+<rect x="905" y="480" width="270" height="155" rx="16" fill="#e2f5ee" stroke="#91cbb5"/>
+<text x="925" y="514" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">SQLite 原子保存</text>
+<text x="925" y="545" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">同请求 → 同一份草稿</text>
+<text x="925" y="572" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">写入失败 → 回滚并报失败</text>
+<text x="925" y="599" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">提交成功才返回 saved</text>
+<polyline points="320,553 345,553" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="600,553 625,553" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="880,553 905,553" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="65" y="675" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">该行是业务依赖，实际调用顺序由模型根据观察选择；不能用固定分支冒充模型。</text>
+<rect x="65" y="703" width="535" height="92" rx="16" fill="#fff4d7" stroke="#e5bd58"/>
+<text x="85" y="737" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">独立用户确认入口</text>
+<text x="85" y="768" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">确认绑定具体草稿、建议时间和素材版本；模型无此工具。</text>
+<rect x="625" y="703" width="550" height="92" rx="16" fill="#e2f5ee" stroke="#91cbb5"/>
+<text x="645" y="737" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" fill="#192940" font-weight="600">确认后再验证</text>
+<text x="645" y="768" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" fill="#526279" font-weight="400">再查规则与占用 → 更新同一草稿；新建议需要重新确认。</text>
+<polyline points="600,750 625,750" fill="none" stroke="#66758b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1225" y="165" width="535" height="660" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="1250" y="205" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" fill="#192940" font-weight="600">02  参考实例 · 结果原型</text>
+<text x="1250" y="238" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">M01 / 原定 18:00 / 当前已占用</text>
+<rect x="1250" y="265" width="485" height="65" rx="16" fill="#e2f5ee" stroke="#91cbb5"/>
+<text x="1270" y="305" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" fill="#236851" font-weight="400">审核状态：通过 · 未命中合成规则风险</text>
+<rect x="1250" y="347" width="485" height="145" rx="16" fill="#fff4d7" stroke="#e5bd58"/>
+<text x="1270" y="383" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#845511" font-weight="600">时间建议：19:00</text>
+<text x="1270" y="418" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#845511" font-weight="400">确认状态：待用户确认</text>
+<text x="1270" y="452" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#845511" font-weight="400">原始要求仍为 18:00；生效时间为空</text>
+<text x="1250" y="531" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#192940" font-weight="400">草稿保存：saved / pending_confirmation</text>
+<text x="1250" y="568" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#192940" font-weight="400">重复提交：existing / 同一 draft_id</text>
+<text x="1250" y="605" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#192940" font-weight="400">保存失败：failed / 不伪造成功</text>
+<polyline points="1250,630 1735,630" fill="none" stroke="#66758b" stroke-width="2"/>
+<text x="1250" y="666" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">确认 19:00</text>
+<text x="1250" y="700" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">这是独立用户动作；确认后仍需复验。</text>
+<rect x="1250" y="728" width="485" height="55" rx="16" fill="#192940" stroke="#192940"/>
+<text x="1270" y="762" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#fff" font-weight="600">发布状态始终为 false</text>
+<rect x="40" y="845" width="1720" height="495" rx="16" fill="#fff" stroke="#dbe1eb"/>
+<text x="65" y="887" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" fill="#192940" font-weight="600">03  痛点标记与基础架构完成后的强化</text>
+<rect x="65" y="915" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="83" y="944" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P1  资料缺失</text>
+<text x="83" y="973" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">补查有来源，仍缺失就返回待补充</text>
+<rect x="910" y="915" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="928" y="944" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P2  风险绕过</text>
+<text x="928" y="973" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">保存前强制审核；对抗恶意素材指令</text>
+<rect x="65" y="1013" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="83" y="1042" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P3  越权改时</text>
+<text x="83" y="1071" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">模型无法确认；旧确认不批准新时间</text>
+<rect x="910" y="1013" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="928" y="1042" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P4  时段竞态</text>
+<text x="928" y="1071" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">事务内复查；确认后占用变化要重选</text>
+<rect x="65" y="1111" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="83" y="1140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P5  重复保存</text>
+<text x="83" y="1169" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">唯一键与输入摘要；并发重复只写一份</text>
+<rect x="910" y="1111" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="928" y="1140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P6  虚报成功</text>
+<text x="928" y="1169" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">故障回滚；结果从数据库提交事实生成</text>
+<rect x="65" y="1209" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="83" y="1238" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">P7  失控执行</text>
+<text x="83" y="1267" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">全局步数限制；非法动作不能发布</text>
+<rect x="910" y="1209" width="815" height="80" rx="10" fill="#f7f8fc" stroke="#e1e5ef"/>
+<text x="928" y="1238" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#192940" font-weight="600">证据边界</text>
+<text x="928" y="1267" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" fill="#526279" font-weight="400">Mock 验流程；真实模型路径单独验收</text>
+<text x="48" y="1370" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" fill="#626b88" font-weight="400">SVG 可导入 Figma · 设计原型，不表示已完成真实模型验收 · 时区示例：Asia/Shanghai</text>
+</svg>
