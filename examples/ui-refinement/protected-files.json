@@ -1,0 +1,10 @@
+{
+  "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "src/agent.py": "821fde69581c606650d6a43081f7b7a6dd27c6b4fc56be8bf9181a2d291720af",
+  "src/cli.py": "8501c551a4c2ceff9422ee666e4070c6032a92306ff8a1c420f1e975d0b7aaf1",
+  "src/domain.py": "db190afe804bd66814ae1b62f50a9e23042c5c6a6a154fa186e4ea66dbed87ce",
+  "src/models.py": "04afcdace2211985adb91b0a3bf5e8dc034648dad916388d6f0a7c596609ef09",
+  "src/store.py": "da613fc448f151375fb578c2339000c69c4c0e51a9646c70e5ae61c91e7369ca",
+  "src/web.py": "4dcfffabb40efcc3f3a4082746a24f3d4bad6a495ccfa03696cbfca7b67d99a6",
+  "web/app.js": "986bff8317ddeb8951f0e2cf406009ccf6e00df582a8fc3d8e66e14e8ffdb00c"
+}

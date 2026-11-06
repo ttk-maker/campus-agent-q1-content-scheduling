@@ -120,3 +120,8 @@ python -m src.cli run --request data/requests/normal.json --db runtime/budget.db
 ## 限制
 
 合成规则不能替代真实内容审核。候选只包含原定时间及之后三个整小时间隔。CLI / 本地网页操作者被视为可信用户，生产环境需增加认证。工作台默认仅本机访问，没有真实发布接口或公网托管。SVG 是经用户选择的设计图稿，尚未写入 Figma 在线文件。详见评估文档。
+
+
+## 前端优化与复用 Skill
+
+[四向优化记录](docs/10-ui-refinement.md) · [frontend-four-pass Skill](docs/skills/frontend-four-pass/SKILL.md) · [展示检查](examples/ui-refinement/presentation/report.json)。本轮只调整展示与信息层级，后端及模型逻辑保持不变。

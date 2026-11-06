@@ -37,10 +37,16 @@ jobs:
       - run: node scripts/browser-smoke.cjs http://127.0.0.1:8765 examples/browser-ci
         env:
           BROWSER_CHANNEL: chromium
+      - run: node scripts/ui-review.cjs
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+          UI_OUTPUT: examples/ui-refinement/ci
+          WEB_URL: http://127.0.0.1:8765
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: browser-evidence
           path: |
             examples/browser-ci/
+            examples/ui-refinement/ci/
             runtime/server.log

@@ -164,7 +164,7 @@ const path = require("node:path");
   await page.goto(base + "/manual.html");
   check(
     "manual is reachable",
-    (await page.locator("h1").innerText()).includes("一步步"),
+    (await page.locator("h1").innerText()).includes("使用手册"),
   );
   check("no browser JS errors", consoleErrors.length === 0);
   check("no unexpected network failures", networkErrors.length === 0);

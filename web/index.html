@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="/app.js" defer></script>
   </head>
-  <body>
+  <body><a class="skip-link" href="#workspace-main">跳到主要内容</a>
     <header>
       <a class="brand" href="/">排期工作台<span>CONTENT OPERATIONS</span></a>
       <nav>
@@ -15,25 +15,20 @@
         ><a href="/manual.html">使用手册 ↗</a>
       </nav>
     </header>
-    <main>
+    <main id="workspace-main">
       <section class="intro">
         <div>
-          <p class="eyebrow">审核清楚，再安排时间</p>
-          <h1>让每一份素材，有明确的下一步。</h1>
-          <p>检查资料与风险，避开时段冲突。所有结果仅保存为草稿。</p>
+          <h1>素材审核与排期</h1>
+          <p>仅保存草稿，不会发布；硬性时间变更需你确认。</p>
         </div>
-        <div class="boundary">只保存草稿<strong>不会真实发布</strong></div>
       </section>
-      <div id="notice" class="notice" role="status" aria-live="polite">
-        正在连接本地服务…
-      </div>
       <div class="workspace">
         <section class="panel input-panel">
           <div class="section-title">
             <span class="step">01</span>
             <div>
               <h2>提交审核</h2>
-              <p>选择演示场景，或编辑你的素材与排期。</p>
+
             </div>
           </div>
           <form id="review-form">
@@ -53,7 +48,7 @@
               <option value="real">真实模型 · 本地 Qwen</option>
             </select>
             <p class="hint" id="mode-hint">
-              离线模式不调用模型，不能证明真实模型的决策效果。
+              离线模式只验证流程，不代表模型效果。
             </p>
             <div class="label-row">
               <label for="request-id">请求编号</label
@@ -67,7 +62,7 @@
               required
               autocomplete="off"
             />
-            <p class="hint">重复提交请保留编号；修改硬性需求时使用新编号。</p>
+            <p class="hint">重复提交保留编号；修改需求须用新编号。</p>
             <div class="two-fields">
               <div>
                 <label for="asset-id">素材 ID</label
@@ -83,12 +78,12 @@
                 id="hard-time"
                 type="checkbox"
                 checked
-              />这是硬性时间要求，改时必须由我确认</label
+              />硬性时间：改时需我确认</label
             >
             <details id="advanced">
               <summary>高级资料与批量请求</summary>
               <label for="items"
-                >素材请求列表（JSON，以下内容为实际提交值）</label
+                >素材请求列表（JSON，以此提交）</label
               ><textarea id="items" rows="7" spellcheck="false"></textarea
               ><label for="data">素材、规则与完整占用快照（JSON）</label
               ><textarea id="data" rows="12" spellcheck="false"></textarea>
@@ -113,13 +108,17 @@
               审核并生成草稿 <span aria-hidden="true">→</span>
             </button>
           </form>
+      <div id="notice" class="notice" role="status" aria-live="polite">
+        正在连接本地服务…
+      </div>
+
         </section>
         <section class="panel result-panel">
           <div class="section-title">
             <span class="step">02</span>
             <div>
               <h2>审核结果</h2>
-              <p id="result-subtitle">状态、建议与保存事实，一起核对。</p>
+              <p id="result-subtitle"></p>
             </div>
             <button id="download" class="secondary" disabled>导出记录</button>
           </div>
@@ -127,21 +126,15 @@
             <span class="spinner"></span>
             <div>
               <strong>Agent 正在处理</strong>
-              <p>模型可能需要数分钟。请勿反复提交；页面会自动更新。</p>
+              <p>模型可能需要数分钟，请勿重复提交。</p>
             </div>
           </div>
           <div id="results">
             <div class="empty">
-              <div class="empty-icon">↗</div>
-              <h3>从一份待审核素材开始</h3>
+              <h3>暂无审核结果</h3>
               <p>
-                左侧默认演示题目中的冲突场景。<br />提交后，19:00
-                的建议不会自动获得你的同意。
+                改时建议须经确认后才能生效。
               </p>
-              <div class="flow-hint">
-                <span>审核</span><b>→</b><span>查时段</span><b>→</b
-                ><span>保存草稿</span>
-              </div>
             </div>
           </div>
           <details id="trace-panel" hidden>
@@ -156,12 +149,12 @@
           <div>
             <h2>已保存草稿</h2>
             <p>
-              来自本地数据库。待确认不占位；需重新审核的草稿不能视为可用排期。
+              待确认草稿不占位；需重新审核的草稿不可用。
             </p>
           </div>
           <button class="secondary" id="refresh">刷新</button>
         </div>
-        <div class="table-scroll">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="已保存草稿表格">
           <table>
             <thead>
               <tr>
@@ -176,7 +169,7 @@
         </div>
       </section>
       <footer>
-        本地演示工作区 · 合成素材与规则 · 页面关闭不撤销已保存草稿
+        合成素材与规则 · 关闭页面不会撤销草稿
       </footer>
     </main>
   </body>
