@@ -9,6 +9,7 @@ import sqlite3
 from .agent import Agent
 from .models import HTTPModel, MockModel, ModelError
 from .store import DraftStore
+from .domain import validate_data, validate_request
 
 
 def load(path):
@@ -39,11 +40,13 @@ def main(argv=None):
             result = store.confirm(args.request_id, args.asset_id, args.slot)
         else:
             data = load(args.data)
+            validate_data(data)
+            request = validate_request(load(args.request))
             store.initialize_schedule(data["occupied"])
             model = MockModel() if args.mode == "mock" else HTTPModel()
             agent = Agent(model, store, data, max_steps=args.max_steps,
                           fail_save=args.simulate_save_failure)
-            result = agent.run(load(args.request))
+            result = agent.run(request)
             agent.write_trace(args.trace)
             target = Path(args.output)
             target.parent.mkdir(parents=True, exist_ok=True)

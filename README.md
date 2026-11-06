@@ -2,7 +2,17 @@
 
 帮助内容团队审核素材，生成无冲突、可确认的排期草稿。**只保存草稿，不接真实发布。**
 
-Python CLI + 模型驱动工具循环 + SQLite，无第三方 Python 依赖。真实模型采用本机已有的 **Ollama / Qwen2.5 7B Instruct**。离线 Mock 单独标识，仅用于工程流程验证。
+浏览器工作台 / Python CLI + 模型驱动工具循环 + SQLite，无第三方 Python 运行依赖。真实模型采用本机已有的 **Ollama / Qwen2.5 7B Instruct**。离线 Mock 单独标识，仅用于工程流程验证。
+
+## 网页入口（修复 404 使用问题）
+
+在仓库目录运行 **python -m src.web**（本机 Windows 使用 **py -3.10 -m src.web**），打开 **[http://127.0.0.1:8765/](http://127.0.0.1:8765/)**。
+
+**http://localhost:11434/v1 是模型 API 基础地址，直接用浏览器打开返回 404 属于路径用途不同；它不是工作台。** 工作台与 Ollama 是独立服务。
+
+完整操作见 [使用手册](docs/08-user-manual.md)；支持审核、重复提交、独立确认、Trace 与记录下载。最新渐进冒烟与修复结果见 [稳健性报告](docs/09-robustness-and-web.md)。
+
+![实际浏览器工作台](examples/browser/desktop.png)
 
 ## 评审入口
 
@@ -109,4 +119,4 @@ python -m src.cli run --request data/requests/normal.json --db runtime/budget.db
 
 ## 限制
 
-合成规则不能替代真实内容审核。候选只包含原定时间及之后三个整小时时段。CLI 操作者被视为可信用户，生产环境需增加认证。没有真实发布接口或线上托管。SVG 是经用户选择的设计图稿，尚未写入 Figma 在线文件。详见评估文档。
+合成规则不能替代真实内容审核。候选只包含原定时间及之后三个整小时间隔。CLI / 本地网页操作者被视为可信用户，生产环境需增加认证。工作台默认仅本机访问，没有真实发布接口或公网托管。SVG 是经用户选择的设计图稿，尚未写入 Figma 在线文件。详见评估文档。

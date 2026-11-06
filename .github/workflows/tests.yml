@@ -14,3 +14,33 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python scripts/run_examples.py --mode mock
       - run: python scripts/verify_examples.py --mode mock
+      - run: python scripts/robustness_smoke.py
+      - run: python scripts/model_boundary_smoke.py --mode mock
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Start local workbench
+        run: |
+          mkdir -p runtime
+          python -m src.web --db runtime/browser-ci.db > runtime/server.log 2>&1 &
+          python -c "import time,urllib.request; time.sleep(2); urllib.request.urlopen('http://127.0.0.1:8765/api/health')"
+      - run: node scripts/browser-smoke.cjs http://127.0.0.1:8765 examples/browser-ci
+        env:
+          BROWSER_CHANNEL: chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: |
+            examples/browser-ci/
+            runtime/server.log

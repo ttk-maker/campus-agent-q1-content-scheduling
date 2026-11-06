@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>排期工作台 · 素材审核 Agent</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">排期工作台<span>CONTENT OPERATIONS</span></a>
+      <nav>
+        <span class="local">本地工作区</span
+        ><a href="/manual.html">使用手册 ↗</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">审核清楚，再安排时间</p>
+          <h1>让每一份素材，有明确的下一步。</h1>
+          <p>检查资料与风险，避开时段冲突。所有结果仅保存为草稿。</p>
+        </div>
+        <div class="boundary">只保存草稿<strong>不会真实发布</strong></div>
+      </section>
+      <div id="notice" class="notice" role="status" aria-live="polite">
+        正在连接本地服务…
+      </div>
+      <div class="workspace">
+        <section class="panel input-panel">
+          <div class="section-title">
+            <span class="step">01</span>
+            <div>
+              <h2>提交审核</h2>
+              <p>选择演示场景，或编辑你的素材与排期。</p>
+            </div>
+          </div>
+          <form id="review-form">
+            <label for="scenario">演示场景</label
+            ><select id="scenario">
+              <option value="conflict">时段冲突 · 18:00 → 建议 19:00</option>
+              <option value="normal">正常排期</option>
+              <option value="missing">信息缺失</option>
+              <option value="risk">规则风险</option>
+              <option value="supplement">补查资料</option>
+              <option value="save-failure">保存失败演练</option>
+              <option value="batch">多素材批量审核</option>
+            </select>
+            <label for="mode">运行方式</label
+            ><select id="mode">
+              <option value="mock">离线演练 · 检查流程</option>
+              <option value="real">真实模型 · 本地 Qwen</option>
+            </select>
+            <p class="hint" id="mode-hint">
+              离线模式不调用模型，不能证明真实模型的决策效果。
+            </p>
+            <div class="label-row">
+              <label for="request-id">请求编号</label
+              ><button type="button" class="text-button" id="new-id">
+                生成新编号
+              </button>
+            </div>
+            <input
+              id="request-id"
+              maxlength="128"
+              required
+              autocomplete="off"
+            />
+            <p class="hint">重复提交请保留编号；修改硬性需求时使用新编号。</p>
+            <div class="two-fields">
+              <div>
+                <label for="asset-id">素材 ID</label
+                ><input id="asset-id" required maxlength="128" />
+              </div>
+              <div>
+                <label for="time">原定时间 · 北京时间</label
+                ><input id="time" type="datetime-local" required />
+              </div>
+            </div>
+            <label class="check"
+              ><input
+                id="hard-time"
+                type="checkbox"
+                checked
+              />这是硬性时间要求，改时必须由我确认</label
+            >
+            <details id="advanced">
+              <summary>高级资料与批量请求</summary>
+              <label for="items"
+                >素材请求列表（JSON，以下内容为实际提交值）</label
+              ><textarea id="items" rows="7" spellcheck="false"></textarea
+              ><label for="data">素材、规则与完整占用快照（JSON）</label
+              ><textarea id="data" rows="12" spellcheck="false"></textarea>
+              <p class="hint">
+                提交时会同步完整占用快照。修改这里可以测试同一请求在新排期下的结果。
+              </p>
+              <label for="budget">总步骤上限</label
+              ><input
+                id="budget"
+                type="number"
+                min="1"
+                max="100"
+                value="24"
+              /><label class="check"
+                ><input
+                  id="fail-save"
+                  type="checkbox"
+                />演练写入失败（保存将回滚）</label
+              >
+            </details>
+            <button id="submit" class="primary" type="submit">
+              审核并生成草稿 <span aria-hidden="true">→</span>
+            </button>
+          </form>
+        </section>
+        <section class="panel result-panel">
+          <div class="section-title">
+            <span class="step">02</span>
+            <div>
+              <h2>审核结果</h2>
+              <p id="result-subtitle">状态、建议与保存事实，一起核对。</p>
+            </div>
+            <button id="download" class="secondary" disabled>导出记录</button>
+          </div>
+          <div id="progress" class="progress" hidden>
+            <span class="spinner"></span>
+            <div>
+              <strong>Agent 正在处理</strong>
+              <p>模型可能需要数分钟。请勿反复提交；页面会自动更新。</p>
+            </div>
+          </div>
+          <div id="results">
+            <div class="empty">
+              <div class="empty-icon">↗</div>
+              <h3>从一份待审核素材开始</h3>
+              <p>
+                左侧默认演示题目中的冲突场景。<br />提交后，19:00
+                的建议不会自动获得你的同意。
+              </p>
+              <div class="flow-hint">
+                <span>审核</span><b>→</b><span>查时段</span><b>→</b
+                ><span>保存草稿</span>
+              </div>
+            </div>
+          </div>
+          <details id="trace-panel" hidden>
+            <summary>查看动作与工具返回 <span id="trace-count"></span></summary>
+            <div id="trace"></div>
+          </details>
+        </section>
+      </div>
+      <section class="panel draft-panel">
+        <div class="section-title">
+          <span class="step">03</span>
+          <div>
+            <h2>已保存草稿</h2>
+            <p>
+              来自本地数据库。待确认不占位；需重新审核的草稿不能视为可用排期。
+            </p>
+          </div>
+          <button class="secondary" id="refresh">刷新</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>素材 / 请求</th>
+                <th>建议时间 · 北京时间</th>
+                <th>状态</th>
+                <th>草稿 ID</th>
+              </tr>
+            </thead>
+            <tbody id="drafts"></tbody>
+          </table>
+        </div>
+      </section>
+      <footer>
+        本地演示工作区 · 合成素材与规则 · 页面关闭不撤销已保存草稿
+      </footer>
+    </main>
+  </body>
+</html>

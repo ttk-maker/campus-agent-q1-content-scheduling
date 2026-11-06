@@ -6,7 +6,7 @@ from contextlib import contextmanager
 from pathlib import Path
 import sqlite3
 
-from .domain import canonical, digest, input_hash, overlaps
+from .domain import canonical, check_rules, digest, input_hash, overlaps
 
 
 class DraftStore:
@@ -33,6 +33,9 @@ class DraftStore:
                     start TEXT NOT NULL, duration INTEGER NOT NULL
                 );
             """)
+            columns = {r["name"] for r in db.execute("PRAGMA table_info(drafts)")}
+            if "revision" not in columns:
+                db.execute("ALTER TABLE drafts ADD COLUMN revision INTEGER NOT NULL DEFAULT 1")
 
     @contextmanager
     def connect(self):
@@ -56,6 +59,35 @@ class DraftStore:
                     raise ValueError("invalid schedule duration")
                 db.execute("INSERT INTO occupied VALUES (?, ?, ?, ?)",
                            (entry["id"], entry["channel"], start, duration))
+            for row in db.execute("SELECT * FROM drafts WHERE status = 'ready'").fetchall():
+                asset = {"channel": row["channel"], "duration_minutes": row["duration"]}
+                if self._conflicts(db, row["request_id"], row["asset_id"], asset, row["suggested_at"]):
+                    self._invalidate(db, row)
+
+    @staticmethod
+    def _invalidate(db, row):
+        db.execute("UPDATE drafts SET status='needs_revalidation', revision=revision+1 "
+                   "WHERE request_id=? AND asset_id=?", (row["request_id"], row["asset_id"]))
+        db.execute("DELETE FROM confirmations WHERE request_id=? AND asset_id=?",
+                   (row["request_id"], row["asset_id"]))
+
+    def revalidate_materials(self, data):
+        """Invalidate prior decisions when the supplied authoritative material changes."""
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            for row in db.execute("SELECT * FROM drafts WHERE status != 'needs_revalidation'").fetchall():
+                if row["asset_id"] not in data["assets"]:
+                    self._invalidate(db, row)
+                    continue
+                original = dict(data["assets"][row["asset_id"]])
+                full = {**original, **data.get("supplements", {}).get(row["asset_id"], {})}
+                matching = next((a for a in (original, full) if digest(a) == row["asset_hash"]), None)
+                if matching is None or check_rules(matching, data["rules"])["status"] != "passed":
+                    self._invalidate(db, row)
+
+    def list_drafts(self):
+        with self.connect() as db:
+            return [dict(r) for r in db.execute("SELECT * FROM drafts ORDER BY rowid DESC LIMIT 100")]
 
     def occupy(self, slot_id, channel, start, duration):
         with self.connect() as db:
@@ -82,9 +114,9 @@ class DraftStore:
     @staticmethod
     def fingerprint(row):
         return digest({key: row[key] for key in
-                       ("input_hash", "asset_hash", "suggested_at")})
+                       ("input_hash", "asset_hash", "suggested_at", "revision")})
 
-    def confirm(self, request_id, asset_id, suggested_at):
+    def confirm(self, request_id, asset_id, suggested_at, expected_fingerprint=None):
         """Trusted CLI user action. Deliberately absent from the model tool registry."""
         with self.connect() as db:
             db.execute("BEGIN IMMEDIATE")
@@ -94,6 +126,8 @@ class DraftStore:
                 return {"status": "rejected", "reason": "no pending draft"}
             if canonical(suggested_at) != row["suggested_at"]:
                 return {"status": "rejected", "reason": "confirmation must match current suggestion"}
+            if expected_fingerprint is not None and expected_fingerprint != self.fingerprint(row):
+                return {"status": "rejected", "reason": "stale_confirmation"}
             db.execute("INSERT OR REPLACE INTO confirmations(request_id, asset_id, fingerprint) "
                        "VALUES (?, ?, ?)", (request_id, asset_id, self.fingerprint(row)))
             return {"status": "confirmed", "draft_id": row["draft_id"],
@@ -115,7 +149,7 @@ class DraftStore:
                    input_hash=input_hash(item), asset_hash=digest(asset),
                    draft_id="draft-" + digest([request_id, item["asset_id"]])[:20],
                    requested_at=canonical(item["requested_at"]), suggested_at=chosen,
-                   channel=asset["channel"], duration=asset["duration_minutes"])
+                   channel=asset["channel"], duration=asset["duration_minutes"], revision=1)
         try:
             with self.connect() as db:
                 db.execute("BEGIN IMMEDIATE")
@@ -123,6 +157,12 @@ class DraftStore:
                                    (request_id, item["asset_id"])).fetchone()
                 if prior and prior["input_hash"] != row["input_hash"]:
                     return {"status": "rejected", "error": "idempotency_conflict"}
+                if prior:
+                    row["revision"] = prior["revision"]
+                    if prior["asset_hash"] != row["asset_hash"] or prior["suggested_at"] != chosen:
+                        row["revision"] += 1
+                        db.execute("DELETE FROM confirmations WHERE request_id=? AND asset_id=?",
+                                   (request_id, item["asset_id"]))
                 # Never mutate an already reserved draft through an ordinary retry.
                 if prior and prior["status"] == "ready":
                     if prior["asset_hash"] != row["asset_hash"] or prior["suggested_at"] != chosen:
@@ -140,12 +180,14 @@ class DraftStore:
                     return {"status": "existing", "draft_id": row["draft_id"],
                             "draft_status": row["status"], "suggested_at": chosen}
                 db.execute("""
-                    INSERT INTO drafts VALUES (
+                    INSERT INTO drafts(request_id, asset_id, input_hash, asset_hash, draft_id,
+                        requested_at, suggested_at, channel, duration, status, revision) VALUES (
                         :request_id, :asset_id, :input_hash, :asset_hash, :draft_id,
-                        :requested_at, :suggested_at, :channel, :duration, :status)
+                        :requested_at, :suggested_at, :channel, :duration, :status, :revision)
                     ON CONFLICT(request_id, asset_id) DO UPDATE SET
                         asset_hash=excluded.asset_hash, suggested_at=excluded.suggested_at,
-                        channel=excluded.channel, duration=excluded.duration, status=excluded.status
+                        channel=excluded.channel, duration=excluded.duration, status=excluded.status,
+                        revision=excluded.revision
                 """, row)
                 if fail:
                     raise sqlite3.OperationalError("injected write failure before commit")

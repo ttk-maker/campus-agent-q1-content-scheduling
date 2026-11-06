@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import json
 from pathlib import Path
 
-from .domain import canonical, check_rules, instant, validate_request
+from .domain import canonical, check_rules, digest, instant, validate_request
 from .models import ModelError
 
 
@@ -19,6 +19,7 @@ class Agent:
 
     def run(self, request):
         validate_request(request)
+        self.store.revalidate_materials(self.data)
         self.trace = []
         results = []
         for item in request["items"]:
@@ -32,16 +33,21 @@ class Agent:
         history = []
         terminal = None
         error = None
+        included_supplement = False
         while len(self.trace) < self.max_steps:
             context = {"request": {"request_id": request_id, **item}, "history": history}
             try:
                 action = self.model.decide(context)
             except ModelError as exc:
                 terminal, error = "failed", str(exc)
-                self.trace.append({"step": len(self.trace) + 1, "asset_id": item["asset_id"],
+                if history:
+                    history[-1]["next_action"] = "model"
+                failed_step = {"step": len(self.trace) + 1, "asset_id": item["asset_id"],
                                    "action": {"tool": "model", "arguments": {}, "reason": "Request failed."},
                                    "observation": {"status": "failed", "error": error},
-                                   "next_action": "stop"})
+                                   "next_action": "stop:failed"}
+                history.append(failed_step)
+                self.trace.append(failed_step)
                 break
             tool, args = (action.get("tool"), action.get("arguments")) if isinstance(action, dict) else (None, None)
             observation = {"status": "rejected", "error": "invalid_action"}
@@ -53,6 +59,7 @@ class Agent:
             if valid:
                 try:
                     if tool == "read_asset" and set(args) == {"include_supplement"} and type(args["include_supplement"]) is bool:
+                        included_supplement = args["include_supplement"]
                         asset = dict(self.data["assets"].get(item["asset_id"], {}))
                         if args["include_supplement"]:
                             asset.update(self.data.get("supplements", {}).get(item["asset_id"], {}))
@@ -76,7 +83,11 @@ class Agent:
                                 start = (requested + timedelta(hours=hours)).isoformat()
                                 conflicts = self.store.conflicts(request_id, item["asset_id"], asset, start)
                                 slots.append({"start": start, "available": not conflicts, "conflicts": conflicts})
-                            observation = {"status": "ok", "slots": slots}
+                            observation = {"status": "ok", "slots": slots,
+                                           "available_count": sum(s["available"] for s in slots),
+                                           "available_starts": [s["start"] for s in slots if s["available"]]}
+                            if not observation["available_count"]:
+                                observation["allowed_finish_outcomes"] = ["no_available_slot"]
                     elif tool == "save_draft" and set(args) == {"suggested_at"}:
                         if not review or review["status"] != "passed" or check_rules(asset, self.data["rules"])["status"] != "passed":
                             observation = {"status": "rejected", "error": "review_required"}
@@ -86,8 +97,15 @@ class Agent:
                         else:
                             if self.before_save:
                                 self.before_save(self.store)
-                            observation = self.store.save(request_id, item, asset, args["suggested_at"],
-                                                          fail=self.fail_save)
+                            latest = dict(self.data["assets"].get(item["asset_id"], {}))
+                            if included_supplement:
+                                latest.update(self.data.get("supplements", {}).get(item["asset_id"], {}))
+                            if digest(latest) != digest(asset) or check_rules(latest, self.data["rules"])["status"] != "passed":
+                                observation = {"status": "rejected", "error": "material_changed_recheck_required"}
+                                review = slots = None
+                            else:
+                                observation = self.store.save(request_id, item, asset, args["suggested_at"],
+                                                              fail=self.fail_save)
                             if observation["status"] in ("saved", "existing"):
                                 saved = observation
                                 observation["save_succeeded"] = True
@@ -106,9 +124,16 @@ class Agent:
                             terminal = outcome
                             observation = {"status": "finished", "outcome": outcome}
                         else:
+                            evidence_outcomes = []
+                            if saved:
+                                evidence_outcomes.append("completed")
+                            if review and review["status"] in ("insufficient", "blocked"):
+                                evidence_outcomes.append("needs_information" if review["status"] == "insufficient" else "blocked")
+                            if slots and not any(s["available"] for s in slots):
+                                evidence_outcomes.append("no_available_slot")
                             observation = {"status": "rejected", "error": "unsupported_finish_claim",
-                                           "allowed_outcomes": (["completed"] if saved else [])}
-                except (ValueError, TypeError):
+                                           "allowed_outcomes": evidence_outcomes}
+                except (ValueError, TypeError, OverflowError):
                     observation = {"status": "rejected", "error": "invalid_tool_arguments"}
             # Do not persist arbitrary model keys, internal analysis, or unbounded rationales.
             safe_action = {"tool": tool if isinstance(tool, str) else "invalid",
@@ -146,6 +171,7 @@ class Agent:
                                        "suggested": current["suggested_at"]}] if pending else []),
             "draft_id": current["draft_id"] if current else None,
             "draft_status": current["status"] if current else None,
+            "confirmation_token": self.store.fingerprint(current) if pending else None,
             "save_status": save_status, "published": False,
             "error": error or (attempts[-1].get("error") if attempts else None)
         }

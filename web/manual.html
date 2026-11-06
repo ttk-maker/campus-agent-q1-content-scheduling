@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>使用手册 · 排期工作台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">排期工作台<span>CONTENT OPERATIONS</span></a>
+      <nav><a href="/">返回工作台 →</a></nav>
+    </header>
+    <main class="manual">
+      <p class="eyebrow">USER GUIDE</p>
+      <h1>从审核到确认，一步步使用。</h1>
+      <p>适用于本地演示。所有结果只保存为草稿，不会向任何平台发布。</p>
+      <section class="panel">
+        <h2>1. 打开正确的页面</h2>
+        <p>在项目目录启动：</p>
+        <pre>py -3.10 -m src.web</pre>
+        <p>
+          然后打开
+          <a href="http://127.0.0.1:8765/">http://127.0.0.1:8765/</a
+          >。本页由该服务提供。
+        </p>
+        <p>
+          <code>http://localhost:11434/v1</code> 是 Ollama 模型 API
+          基础地址，直接打开可能返回 404，它不是工作台。Ollama
+          和工作台是两个独立服务。
+        </p>
+      </section>
+      <section class="panel">
+        <h2>2. 第一次审核</h2>
+        <ol>
+          <li>选择“时段冲突”演示，先保持“离线演练”。</li>
+          <li>核对素材 M01、原定时间 2026-11-07 18:00、请求编号。</li>
+          <li>点击“审核并生成草稿”。</li>
+          <li>
+            查看审核状态、保存状态和建议时间。默认示例建议
+            19:00，但生效时间为空。
+          </li>
+        </ol>
+        <p>
+          若使用“真实模型”，需启动 Ollama 并已有 qwen2.5:7b-instruct。CPU
+          推理可能需要数分钟。页面显示运行中时不要重复点击。
+        </p>
+      </section>
+      <section class="panel">
+        <h2>3. 确认改时</h2>
+        <p>
+          在结果卡片点击“确认改为…并重新审核”，核对弹窗时间后确认。后端会复查规则与占用，成功后更新同一草稿为“可用草稿”，仍未发布。
+        </p>
+        <p>
+          草稿版本已经变化时，旧页面的确认会被拒绝。重新审核，查看最新建议后再确认。
+        </p>
+      </section>
+      <section class="panel">
+        <h2>4. 重复提交与修改资料</h2>
+        <ul>
+          <li>
+            测试防重复：使用相同请求编号、素材和原始要求再次提交，保存状态显示“已存在”。
+          </li>
+          <li>
+            修改原定时间等需求：点击“生成新编号”。不同编号代表不同业务请求，已有草稿可能占用时段。
+          </li>
+          <li>
+            补齐资料或修改已有占用：展开“高级资料与批量请求”，修改
+            JSON；同一需求可保留编号后重新审核。
+          </li>
+          <li>
+            高级素材请求列表是实际提交值；上方素材
+            ID、时间和硬性选项只修改第一项。
+          </li>
+          <li>
+            占用资料是完整快照，删去一项表示该外部占用已取消；现有草稿不会被清空。
+          </li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>5. 结果含义</h2>
+        <ul>
+          <li>审核完成 / 可用草稿：资料与排期已通过当前检查。</li>
+          <li>待确认改时：建议改变了原始时间，需要你明确同意。</li>
+          <li>待补充资料：补齐缺失字段后重新审核。</li>
+          <li>风险阻断：处理具体风险，不能通过确认改时绕过。</li>
+          <li>需重新审核：旧草稿因素材或占用变化失效。</li>
+          <li>
+            执行失败：查阅错误和保存状态；模型在保存后出错时，草稿可能已经存在。
+          </li>
+          <li>
+            达到上限：本次未完成；已保存的事实会独立显示。不要把整体未完成当作草稿一定没保存。
+          </li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>6. 导出、刷新与排障</h2>
+        <p>
+          “导出记录”下载输入、输出及
+          Trace。刷新页面可恢复当前服务进程中的最近任务；服务重启后运行历史不保留，但
+          SQLite 草稿保留。数据库默认在 runtime/web-drafts.db。
+        </p>
+        <ul>
+          <li>页面无法访问：确认工作台终端仍在运行，端口为 8765。</li>
+          <li>
+            真实模型失败：确认 Ollama 已启动，可运行 ollama list
+            检查模型；服务不会自动伪装为离线成功。
+          </li>
+          <li>
+            端口占用：运行 py -3.10 -m src.web --port 8766，再打开对应端口。
+          </li>
+          <li>
+            需要干净演示：指定 --db
+            runtime/demo-new.db；关闭旧服务后启动。不要直接删除正在使用的数据库。
+          </li>
+          <li>
+            JSON 格式错误：检查逗号、双引号及带时区日期；请求总大小最多 256 KB。
+          </li>
+        </ul>
+        <p>页面时间统一显示北京时间。仅支持本机访问，尚非多用户生产服务。</p>
+      </section>
+    </main>
+  </body>
+</html>

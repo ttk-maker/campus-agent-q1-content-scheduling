@@ -1,5 +1,7 @@
 # 评估
 
+本页记录首轮完整验收。2026-11-06 后续新增 Web 工作台和困难边界修复；最新 69 项分层测试、浏览器和真实模型边界验证见 [本轮稳健性报告](09-robustness-and-web.md)。examples/real/ 保留首轮证据，不将其误写为本轮完整重测。
+
 环境：Windows / Python 3.10.11；真实模型 Ollama qwen2.5:7b-instruct，温度 0。本地采用 CPU 推理，无需 API Key。
 
 自动化测试：37 项通过，见 [原始输出](../examples/unit-tests.txt) 和 [命令及环境](../examples/unit-tests.json)。离线 11 组场景、14 次 Agent 运行、61 条检查通过，见 [验收报告](../examples/mock/acceptance.json) 和 [清单](../examples/mock/manifest.json)。真实模型最终批次：11 组场景、14 次运行、61 条检查通过，见 [真实验收报告](../examples/real/acceptance.json) 与 [清单](../examples/real/manifest.json)。
@@ -50,7 +52,7 @@ Trace 仅记录外部动作、参数、观察与简要理由，不含模型内�
 - 待确认不占位，ready 草稿占位；改变 ready 意图需新请求。尚未提供取消草稿接口。
 - CPU 调用可能超过 45 秒；非法 JSON 或网络错误明确失败。未验证云端供应商实际效果。
 - Prompt 优先建议先补查，但最终真实 missing 案例没有遵循这一偏好：模型试图查时段，被审核守卫拒绝后直接请求补充。该终态满足缺资料安全边界，但不应描述成已经补查；补查能力由 supplement 案例单独展示，后续需评估补查遵循率。
-- 未提供真实发布、线上托管或 Figma 在线文件；本轮交付可导入 SVG。
+- 未提供真实发布、公网托管或 Figma 在线文件；当前已新增本机 Web 工作台，SVG 原型仍可导入。
 
 
 ## 最终真实模型运行汇总
