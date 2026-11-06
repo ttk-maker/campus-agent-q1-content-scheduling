@@ -1,7 +1,7 @@
 """Bounded model -> tool -> observation loop with independent business guards."""
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 import json
 from pathlib import Path
 
@@ -71,7 +71,9 @@ class Agent:
                         else:
                             slots = []
                             for hours in range(4):
-                                start = (instant(item["requested_at"]) + timedelta(hours=hours)).isoformat()
+                                # Present candidates in the user's timezone; normalize only at storage boundaries.
+                                requested = datetime.fromisoformat(item["requested_at"].replace("Z", "+00:00"))
+                                start = (requested + timedelta(hours=hours)).isoformat()
                                 conflicts = self.store.conflicts(request_id, item["asset_id"], asset, start)
                                 slots.append({"start": start, "available": not conflicts, "conflicts": conflicts})
                             observation = {"status": "ok", "slots": slots}
@@ -79,7 +81,7 @@ class Agent:
                         if not review or review["status"] != "passed" or check_rules(asset, self.data["rules"])["status"] != "passed":
                             observation = {"status": "rejected", "error": "review_required"}
                         elif not slots or canonical(args["suggested_at"]) not in {
-                                s["start"] for s in slots if s["available"]}:
+                                canonical(s["start"]) for s in slots if s["available"]}:
                             observation = {"status": "rejected", "error": "available_candidate_required"}
                         else:
                             if self.before_save:
@@ -88,6 +90,9 @@ class Agent:
                                                           fail=self.fail_save)
                             if observation["status"] in ("saved", "existing"):
                                 saved = observation
+                                observation["save_succeeded"] = True
+                                observation["user_confirmation_required"] = observation["draft_status"] == "pending_confirmation"
+                                observation["operation_complete"] = True
                     elif tool == "finish" and set(args) == {"outcome"}:
                         outcome = args["outcome"]
                         allowed = (
@@ -101,7 +106,8 @@ class Agent:
                             terminal = outcome
                             observation = {"status": "finished", "outcome": outcome}
                         else:
-                            observation = {"status": "rejected", "error": "unsupported_finish_claim"}
+                            observation = {"status": "rejected", "error": "unsupported_finish_claim",
+                                           "allowed_outcomes": (["completed"] if saved else [])}
                 except (ValueError, TypeError):
                     observation = {"status": "rejected", "error": "invalid_tool_arguments"}
             # Do not persist arbitrary model keys, internal analysis, or unbounded rationales.
