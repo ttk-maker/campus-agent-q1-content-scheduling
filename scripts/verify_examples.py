@@ -36,7 +36,7 @@ def verify(mode):
         storage = load(root / name / "storage-summary.json")
         if name in ("missing", "risk", "save-failure", "budget"):
             check(name + ": no draft", storage["draft_count"] == 0)
-        if name in ("duplicate", "confirmation"):
+        if name in ("duplicate", "confirmation", "changed-occupancy"):
             first = load(root / name / "output-1.json")["items"][0]
             second = result["items"][0]
             check(name + ": exactly one draft", storage["draft_count"] == 1)

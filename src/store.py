@@ -45,14 +45,16 @@ class DraftStore:
             db.close()
 
     def initialize_schedule(self, entries):
-        """Idempotent fixture import: never silently overwrite an existing occupancy."""
+        """Atomically synchronize the caller's complete external schedule snapshot."""
         with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            db.execute("DELETE FROM occupied")
             for entry in entries:
                 start = canonical(entry["start"])
                 duration = entry["duration_minutes"]
                 if type(duration) is not int or duration < 1:
                     raise ValueError("invalid schedule duration")
-                db.execute("INSERT OR IGNORE INTO occupied VALUES (?, ?, ?, ?)",
+                db.execute("INSERT INTO occupied VALUES (?, ?, ?, ?)",
                            (entry["id"], entry["channel"], start, duration))
 
     def occupy(self, slot_id, channel, start, duration):

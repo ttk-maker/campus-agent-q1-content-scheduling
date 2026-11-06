@@ -265,6 +265,23 @@ class SchedulingTests(unittest.TestCase):
         self.assertEqual(result["status"], "completed")
         self.assertEqual(self.agent.trace[4]["observation"]["error"], "draft_saved_finish_required")
 
+    def test_changed_schedule_is_observed_on_same_request_and_database(self):
+        first = self.run_case("conflict")
+        self.data["occupied"][0]["start"] = "2026-11-07T19:00:00+08:00"
+        self.store.initialize_schedule(self.data["occupied"])
+        second = self.run_case("conflict")
+        self.assertEqual(second["status"], "completed")
+        self.assertEqual(second["effective_at"], canonical("2026-11-07T18:00:00+08:00"))
+        self.assertEqual(second["draft_id"], first["draft_id"])
+        self.assertEqual(self.store.count(), 1)
+
+    def test_invalid_schedule_snapshot_rolls_back_previous_occupancy(self):
+        invalid = [{"id": "bad", "channel": "brand-main", "start": "bad", "duration_minutes": 60}]
+        with self.assertRaises(ValueError):
+            self.store.initialize_schedule(invalid)
+        self.assertTrue(self.store.conflicts("r", "M01", self.data["assets"]["M01"],
+                                             "2026-11-07T18:00:00+08:00"))
+
 
 if __name__ == "__main__":
     unittest.main()

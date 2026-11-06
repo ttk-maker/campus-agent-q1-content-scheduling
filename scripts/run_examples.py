@@ -22,10 +22,15 @@ def write(path, value):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=("mock", "real"), default="mock")
+    parser.add_argument("--case", help="Rerun one named scenario and update its manifest entry.")
     args = parser.parse_args()
     directory = ROOT / "examples" / args.mode
-    manifest = {"mode": args.mode, "generated_at": datetime.now(timezone.utc).isoformat(),
-                "python": sys.version.split()[0], "cases": []}
+    manifest_path = directory / "manifest.json"
+    manifest = (json.loads(manifest_path.read_text(encoding="utf-8"))
+                if args.case and manifest_path.exists() else
+                {"mode": args.mode, "generated_at": datetime.now(timezone.utc).isoformat(),
+                 "python": sys.version.split()[0], "cases": []})
+    matched = False
     with tempfile.TemporaryDirectory() as temp:
         for name, source in [
             ("normal", "normal"), ("missing", "missing"), ("risk", "risk"),
@@ -34,17 +39,23 @@ def main():
             ("changed-occupancy", "conflict"), ("confirmation", "conflict"),
             ("batch", "batch"), ("budget", "normal"),
         ]:
+            if args.case and args.case != name:
+                continue
+            matched = True
             target = directory / name
             request = json.loads((ROOT / "data/requests" / (source + ".json")).read_text(encoding="utf-8"))
             fixture = json.loads((ROOT / "data/fixtures.json").read_text(encoding="utf-8"))
-            if name == "changed-occupancy":
-                fixture["occupied"][0]["start"] = "2026-11-07T19:00:00+08:00"
             write(target / "input.json", request)
             write(target / "fixture.json", fixture)
             db = str(Path(temp) / (name + ".db"))
-            runs = 2 if name in ("duplicate", "confirmation") else 1
-            case = {"name": name, "runs": []}
+            runs = 2 if name in ("duplicate", "confirmation", "changed-occupancy") else 1
+            case = {"name": name, "generated_at": datetime.now(timezone.utc).isoformat(), "runs": []}
             for run in range(1, runs + 1):
+                fixture_path = target / "fixture.json"
+                if name == "changed-occupancy" and run == 2:
+                    fixture["occupied"][0]["start"] = "2026-11-07T19:00:00+08:00"
+                    fixture_path = target / "fixture-2.json"
+                    write(fixture_path, fixture)
                 if name == "confirmation" and run == 2:
                     previous = json.loads((target / "output-1.json").read_text(encoding="utf-8"))
                     slot = previous["items"][0]["suggested_at"]
@@ -59,7 +70,7 @@ def main():
                 output.unlink(missing_ok=True)
                 trace.unlink(missing_ok=True)
                 cmd = [sys.executable, "-m", "src.cli", "run", "--mode", args.mode,
-                       "--request", str(target / "input.json"), "--data", str(target / "fixture.json"),
+                       "--request", str(target / "input.json"), "--data", str(fixture_path),
                        "--db", db, "--trace", str(trace), "--output", str(output)]
                 if name == "save-failure":
                     cmd.append("--simulate-save-failure")
@@ -80,8 +91,11 @@ def main():
             with closing(sqlite3.connect(db)) as connection:
                 rows = connection.execute("SELECT draft_id, status, requested_at, suggested_at FROM drafts").fetchall()
             write(target / "storage-summary.json", {"draft_count": len(rows), "drafts": rows})
-            manifest["cases"].append(case)
+            manifest["cases"] = [c for c in manifest["cases"] if c["name"] != name] + [case]
             print(name + ": " + ", ".join(case["runs"][-1]["statuses"]))
+    if not matched:
+        parser.error("unknown scenario")
+    manifest["updated_at"] = datetime.now(timezone.utc).isoformat()
     write(directory / "manifest.json", manifest)
 
 
