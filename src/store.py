@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from contextlib import contextmanager
 from pathlib import Path
 import sqlite3
 
@@ -33,10 +34,15 @@ class DraftStore:
                 );
             """)
 
+    @contextmanager
     def connect(self):
         db = sqlite3.connect(self.path, timeout=10)
         db.row_factory = sqlite3.Row
-        return db
+        try:
+            with db:
+                yield db
+        finally:
+            db.close()
 
     def initialize_schedule(self, entries):
         """Idempotent fixture import: never silently overwrite an existing occupancy."""

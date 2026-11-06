@@ -42,13 +42,16 @@ class HTTPModel:
         self.key = os.environ.get("MODEL_API_KEY") or os.environ.get("OPENAI_API_KEY")
         self.base = os.environ.get("MODEL_BASE_URL") or os.environ.get("OPENAI_BASE_URL")
         self.name = os.environ.get("MODEL_NAME") or os.environ.get("OPENAI_MODEL")
-        if not all((self.key, self.base, self.name)):
-            raise ModelError("Set MODEL_API_KEY, MODEL_BASE_URL and MODEL_NAME.")
+        if not all((self.base, self.name)):
+            raise ModelError("Set MODEL_BASE_URL and MODEL_NAME; remote services also need MODEL_API_KEY.")
         parsed = urllib.parse.urlsplit(self.base)
+        local = parsed.hostname in ("localhost", "127.0.0.1", "::1")
+        if not local and not self.key:
+            raise ModelError("Remote services require MODEL_API_KEY.")
         if parsed.username or parsed.password or parsed.query or parsed.fragment:
             raise ModelError("Base URL must not contain credentials, query or fragment.")
         if parsed.scheme != "https" and not (
-                parsed.scheme == "http" and parsed.hostname in ("localhost", "127.0.0.1", "::1")):
+                parsed.scheme == "http" and local):
             raise ModelError("Use HTTPS, or HTTP for a local model endpoint.")
 
     def decide(self, context):
@@ -58,12 +61,13 @@ class HTTPModel:
             messages.append({"role": "assistant", "content": json.dumps(step["action"], ensure_ascii=False)})
             messages.append({"role": "user", "content": json.dumps(
                 {"tool_observation": step["observation"]}, ensure_ascii=False)})
-        payload = json.dumps({"model": self.name, "messages": messages,
+        payload = json.dumps({"model": self.name, "messages": messages, "temperature": 0, "max_tokens": 256,
                               "response_format": {"type": "json_object"}}).encode()
+        headers = {"Content-Type": "application/json"}
+        if self.key:
+            headers["Authorization"] = "Bearer " + self.key
         request = urllib.request.Request(self.base.rstrip("/") + "/chat/completions",
-                                         data=payload, method="POST",
-                                         headers={"Authorization": "Bearer " + self.key,
-                                                  "Content-Type": "application/json"})
+                                         data=payload, method="POST", headers=headers)
         # Redirects are refused so Authorization cannot reach a different host.
         class NoRedirect(urllib.request.HTTPRedirectHandler):
             def redirect_request(self, req, fp, code, msg, headers, newurl):
