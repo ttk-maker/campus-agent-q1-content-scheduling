@@ -377,21 +377,21 @@ $("download").addEventListener("click", () => {
     state.bootstrap = await api("/api/bootstrap");
     scenario();
     await refreshDrafts();
+    notice("本地服务已连接。先离线演练，或切换真实模型进行审核。");
     const prior =
       state.bootstrap.active_job || localStorage.getItem("content-agent-job");
     if (prior) {
       try {
         const job = await api("/api/jobs/" + encodeURIComponent(prior));
+        restoreInputs(job);
         if (job.state === "running") await follow(prior);
         else {
-          restoreInputs(job);
           render(job);
         }
       } catch {
         localStorage.removeItem("content-agent-job");
       }
     }
-    notice("本地服务已连接。先离线演练，或切换真实模型进行审核。");
   } catch (error) {
     notice(
       "连接失败：" + error.message + "。请启动 python -m src.web 后刷新。",

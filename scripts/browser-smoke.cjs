@@ -132,6 +132,23 @@ const path = require("node:path");
     await page.evaluate(() => window.__injected !== true),
   );
   await page.locator("#trace-panel").evaluate((n) => (n.open = false));
+  // Simulate one in-flight poll of the actual last job, then its real completed response.
+  const restoredId = await page.inputValue("#request-id");
+  const lastJob = await page.evaluate(() => localStorage.getItem("content-agent-job"));
+  const storedJob = await (await page.request.get(base + "/api/jobs/" + lastJob)).json();
+  let firstPoll = true;
+  await page.route("**/api/jobs/" + lastJob, async (route) => {
+    const body = firstPoll ? { ...storedJob, state: "running" } : storedJob;
+    firstPoll = false;
+    await route.fulfill({ json: body });
+  });
+  await page.reload();
+  await page.waitForFunction(
+    (id) => document.querySelector("#request-id").value === id && !document.querySelector("#submit").disabled,
+    restoredId,
+  );
+  check("in-flight refresh (simulated poll) restores original input", await page.inputValue("#request-id") === restoredId);
+  await page.unroute("**/api/jobs/" + lastJob);
   await page.locator("#advanced").evaluate((n) => (n.open = false));
   await page.setViewportSize({ width: 390, height: 844 });
   check(

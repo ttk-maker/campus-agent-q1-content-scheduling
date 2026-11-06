@@ -53,7 +53,7 @@ Web 联调进一步发现：确认旧任务不能把占用快照回滚到旧版�
 - 分层自动测试：69 项通过（37 基础及既有守卫 + 12 边缘 + 9 困难 + 11 HTTP）。[报告](../examples/robustness/report.json)
 - 新增 4 组边界 Mock 场景全部通过。[报告](../examples/robustness/mock/report.json)
 - 原有 11 组 Mock 场景重新生成，61 条检查通过。[报告](../examples/mock/acceptance.json)
-- Chrome 实际交互：18 项通过；没有页面 JavaScript 错误或意外失败请求；1440px 桌面和 390px 手机布局已截图核验。[报告](../examples/browser/report.json)
+- Chrome 实际交互：19 项通过；没有页面 JavaScript 错误或意外失败请求；1440px 桌面和 390px 手机布局已截图核验。其中运行中刷新恢复输入采用实际任务记录加一次模拟 running 轮询，其他操作使用实际 HTTP 服务。[报告](../examples/browser/report.json)
 - 真实浏览器→HTTP→Qwen→工具→SQLite→页面：7 步后返回待确认，无发布。[报告](../examples/browser-real/report.json)、[完整输入输出与 Trace](../examples/browser-real/job.json)
 - 真实边界：跨午夜、候选全部占满、恶意素材风险、保存时段竞态，最终 4/4 通过。[报告](../examples/robustness/real/report.json)
 

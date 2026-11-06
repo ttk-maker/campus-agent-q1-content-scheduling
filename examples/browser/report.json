@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-06T07:42:17.813Z",
-  "base": "http://127.0.0.1:8765",
+  "timestamp": "2026-11-06T07:56:43.798Z",
+  "base": "http://127.0.0.1:8766",
   "checks": [
     {
       "name": "root page is a usable workbench",
@@ -56,6 +56,10 @@
     },
     {
       "name": "untrusted material is rendered as text",
+      "passed": true
+    },
+    {
+      "name": "in-flight refresh (simulated poll) restores original input",
       "passed": true
     },
     {
