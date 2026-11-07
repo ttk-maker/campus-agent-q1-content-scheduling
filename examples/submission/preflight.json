@@ -1,0 +1,57 @@
+{
+  "project": "q1",
+  "checked_at": "2026-11-07T07:30:22.916062+00:00",
+  "baseline_commit": "6f23f9e85fb44f1f3a52e62dbcb7901ef118fd77",
+  "clean_archive": true,
+  "required_paths": [
+    "README.md",
+    "src",
+    "tests",
+    "examples",
+    "data",
+    "docs/01-requirements.md",
+    "docs/02-solution.md",
+    "docs/03-evaluation.md",
+    "docs/04-ai-usage.md",
+    "docs/05-retrospective.md",
+    "requirements.txt",
+    ".env.example"
+  ],
+  "tracked_runtime_or_private_files": [],
+  "credential_pattern_matches": [],
+  "credential_scan_scope": "Tracked text files; known token/private-key patterns only, not proof of all possible secrets",
+  "tests": 69,
+  "checks": [
+    {
+      "name": "python-tests",
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "evidence-mock",
+      "command": "python scripts/verify_examples.py --mode mock",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "evidence-real",
+      "command": "python scripts/verify_examples.py --mode real",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "cli-smoke",
+      "command": "python -m src.cli run --mode mock --request data/requests/conflict.json --db runtime/submission-cli.db",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "real_model_rerun": false,
+  "note": "Stored real evidence checked without model calls. Runs use extracted git archive and isolated databases. Historical repository evidence not overwritten."
+}

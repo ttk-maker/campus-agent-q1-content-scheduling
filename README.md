@@ -1,5 +1,10 @@
 # 题目 1：素材审核与发布排期 Agent
 
+## 固定版本交付（2026-11-07）
+
+[设计说明](docs/submission/01-design.md) · [提交与考官验收指南](docs/submission/02-delivery-and-acceptance.md) · [干净源码包检查](examples/submission/preflight.json)。固定标签 `q1-submission-20261107`；公开仓库和本机Ollama均无需评审密钥。完整提交SHA以该标签指向commit为准。
+
+
 帮助内容团队审核素材，生成无冲突、可确认的排期草稿。**只保存草稿，不接真实发布。**
 
 浏览器工作台 / Python CLI + 模型驱动工具循环 + SQLite，无第三方 Python 运行依赖。真实模型采用本机已有的 **Ollama / Qwen2.5 7B Instruct**。离线 Mock 单独标识，仅用于工程流程验证。

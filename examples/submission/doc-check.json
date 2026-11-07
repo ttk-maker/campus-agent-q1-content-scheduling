@@ -1,0 +1,9 @@
+{
+  "project": 1,
+  "document_count": 2,
+  "local_github_link_targets_checked": 33,
+  "documented_cli_executed": true,
+  "expected_result_verified": true,
+  "only_documentation_and_evidence_changed": true,
+  "passed": true
+}
